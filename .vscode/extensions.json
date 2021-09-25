@@ -1,0 +1,19 @@
+// Recommended VS Code extensions
+// https://code.visualstudio.com/docs/editor/extension-marketplace
+{
+  "recommendations": [
+    // cspell:disable
+    "jeff-hykin.better-dockerfile-syntax",
+    "davidanson.vscode-markdownlint",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "bierner.github-markdown-preview",
+    "dansnow.vscode-dockerfilelint",
+    "editorconfig.editorconfig",
+    "eamodio.gitlens",
+    "codezombiech.gitignore",
+    "yzhang.markdown-all-in-one",
+    "foxundermoon.shell-format",
+    "ms-azuretools.vscode-docker"
+  ]
+}
