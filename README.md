@@ -1,4 +1,7 @@
-# Base Development Container
+# GitHub Development Container
+
+<!-- markdownlint-disable-next-line MD036 -->
+_A development container for simultaneous use with VS Code and GitHub Actions_
 
 This container is derived from the [Ubuntu][ubuntu] development container
 provided by [Visual Studio Code][vscode] (VS Code) and has the usual `vscode`

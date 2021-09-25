@@ -3,5 +3,5 @@
 
 FROM mcr.microsoft.com/vscode/devcontainers/base:0-ubuntu
 
-# Create user for the GitHub-hosted runner
+# Create a user for the GitHub-hosted runner
 RUN useradd --create-home runner

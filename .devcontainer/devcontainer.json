@@ -3,7 +3,7 @@
 {
   "name": "Base",
   "build": {
-    "dockerfile": "../src/Dockerfile"
+    "dockerfile": "../variants/base/Dockerfile"
   },
   "remoteUser": "vscode"
 }
