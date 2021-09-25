@@ -1,0 +1,9 @@
+// VS Code devcontainer configuration
+// https://code.visualstudio.com/docs/remote/devcontainerjson-reference
+{
+  "name": "Base",
+  "build": {
+    "dockerfile": "../src/Dockerfile"
+  },
+  "remoteUser": "vscode"
+}

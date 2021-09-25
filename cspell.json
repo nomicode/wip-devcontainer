@@ -1,0 +1,15 @@
+// Configuration for cSpell
+// https://streetsidesoftware.github.io/cspell/configuration/
+{
+  "version": "0.2",
+  "language": "en-US",
+  "dictionaries": ["softwareTerms"],
+  "words": [
+    "devcontainer",
+    "devcontainers",
+    "EDITMSG",
+    "ghcr",
+    "markdownlint",
+    "passwordless"
+  ]
+}

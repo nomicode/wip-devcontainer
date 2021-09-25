@@ -1,0 +1,4 @@
+# Configuration for markdownlint
+# https://github.com/DavidAnson/markdownlint/blob/main/schema/
+
+default: true
