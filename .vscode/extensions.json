@@ -14,6 +14,10 @@
     "codezombiech.gitignore",
     "yzhang.markdown-all-in-one",
     "foxundermoon.shell-format",
-    "ms-azuretools.vscode-docker"
+    "ms-azuretools.vscode-docker",
+    "tamasfe.even-better-toml",
+    "donjayamanne.githistory",
+    "pascalreitermann93.vscode-yaml-sort",
+    "fredwangwang.vscode-hcl-format"
   ]
 }
