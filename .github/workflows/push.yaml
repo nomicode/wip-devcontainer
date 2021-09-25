@@ -31,7 +31,7 @@ jobs:
         with:
           args: --check .
   changes:
-    name: 'Detect changed variants'
+    name: 'Detect changes'
     needs: lint
     runs-on: ubuntu-latest
     outputs:
@@ -45,6 +45,7 @@ jobs:
           list-files: json
           filters: |
             base: variants/base/*
+            homebrew: variants/homebrew/*
   build:
     name: 'Build variant: ${{ matrix.variant }}'
     needs: changes
@@ -52,6 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
+      max-parallel: 1
       matrix:
         variant: ${{ fromJSON(needs.changes.outputs.variants) }}
     env:

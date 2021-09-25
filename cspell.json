@@ -3,13 +3,17 @@
 {
   "version": "0.2",
   "language": "en-US",
-  "dictionaries": ["softwareTerms"],
+  "dictionaries": ["bash", "softwareTerms"],
   "words": [
     "devcontainer",
     "devcontainers",
     "EDITMSG",
+    "eval",
     "ghcr",
+    "hadolint",
+    "linuxbrew",
     "markdownlint",
-    "passwordless"
+    "passwordless",
+    "shellenv"
   ]
 }
