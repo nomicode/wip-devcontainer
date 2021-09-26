@@ -48,6 +48,7 @@ jobs:
           filters: |
             vscode/gh: src/vscode/gh/*
             vscode/gh/brew: src/vscode/gh/brew/*
+            vscode/gh/brew/devtools: src/vscode/gh/brew/devtools/*
   build:
     name: 'Build variant: ${{ matrix.variant }}'
     needs: changes
