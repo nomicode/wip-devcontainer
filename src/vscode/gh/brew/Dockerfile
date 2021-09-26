@@ -4,7 +4,7 @@
 # Update timestamp to force a rebuild
 # 1632674108503
 
-FROM ghcr.io/bottle-garden/github-devcontainer/base:main
+FROM ghcr.io/bottle-garden/vscode/gh:main
 
 # Run the build
 COPY build.sh /tmp/build.sh

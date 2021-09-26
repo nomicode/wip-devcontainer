@@ -1,11 +1,11 @@
 version: 2
 updates:
   - package-ecosystem: 'docker'
-    directory: '/variants/base'
+    directory: '/src/vscode/gh'
     schedule:
       interval: 'daily'
   - package-ecosystem: 'docker'
-    directory: '/variants/homebrew'
+    directory: '/src/vscode/gh/brew'
     schedule:
       interval: 'daily'
   - package-ecosystem: 'github-actions'
