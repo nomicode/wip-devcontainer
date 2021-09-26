@@ -8,7 +8,7 @@ curl -fsSL "${BREW}" | /bin/bash
 # Set up Homebrew `shellenv` snippet
 cat > /tmp/shellenv <<EOF
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 EOF
 
 # Copy the `shellenv` snippet to the system Bash configuration, so that `brew`

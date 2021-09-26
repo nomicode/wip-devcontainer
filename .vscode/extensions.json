@@ -18,6 +18,10 @@
     "tamasfe.even-better-toml",
     "donjayamanne.githistory",
     "pascalreitermann93.vscode-yaml-sort",
-    "jsynowiec.vscode-insertdatestring"
+    "jsynowiec.vscode-insertdatestring",
+    "timonwong.shellcheck",
+    "get-woke.vscode-woke",
+    "exiasr.hadolint",
+    "errata-ai.vale-server"
   ]
 }
