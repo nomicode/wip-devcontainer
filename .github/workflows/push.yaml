@@ -11,7 +11,8 @@ on:
 jobs:
   lint:
     name: 'Lint checks'
-    runs-on: ubuntu-latest
+    # Pin the GitHub version to match the VS Code version
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       # cspell:disable-next-line
@@ -33,7 +34,8 @@ jobs:
   changes:
     name: 'Detect changes'
     needs: lint
-    runs-on: ubuntu-latest
+    # Pin the GitHub version to match the VS Code version
+    runs-on: ubuntu-20.04
     outputs:
       variants: ${{ steps.filter.outputs.changes }}
     steps:
@@ -50,7 +52,8 @@ jobs:
     name: 'Build variant: ${{ matrix.variant }}'
     needs: changes
     if: needs.changes.outputs.variants != '[]'
-    runs-on: ubuntu-latest
+    # Pin the GitHub version to match the VS Code version
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: true
       max-parallel: 1
