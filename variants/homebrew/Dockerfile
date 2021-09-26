@@ -1,7 +1,8 @@
 # Dockerfile configuration
 # https://docs.docker.com/engine/reference/builder/
 
-# Last modified: 2021-09-25 23:37:18
+# Update timestamp to force a rebuild
+# 1632674108503
 
 FROM ghcr.io/bottle-garden/github-devcontainer/base:main
 

@@ -2,8 +2,6 @@
 
 BREW="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
 
-BUILD_ESSENTIAL="build-essential=12.8ubuntu1.1"
-
 # Install Homebrew
 curl -fsSL "${BREW}" | /bin/bash
 
@@ -27,7 +25,7 @@ apt-get update
 apt-get dist-upgrade -y
 
 # Install build tools
-apt-get install -y --no-install-recommends "${BUILD_ESSENTIAL}"
+apt-get install -y --no-install-recommends build-essential
 brew install gcc
 
 # Clean up APT
