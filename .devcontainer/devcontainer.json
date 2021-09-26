@@ -3,7 +3,22 @@
 {
   "name": "Base",
   "build": {
-    "dockerfile": "../variants/base/Dockerfile"
+    // The `Dockerfile` in this directory is configured to use one of the
+    // project's own published images.
+    //
+    // If you are starting from scratch with no published images, you will need
+    // to bootstrap the process by configuring the `dockerfile` setting below
+    // to point to the `../variants/base/Dockerfile` file:
+    //
+    // "dockerfile": "../variants/base/Dockerfile"
+    //
+    // Doing this will allow you to publish the `base` variant and each other
+    // variant in sequence.
+    //
+    // Once you have a published image, you can use and configure the
+    // `Dockerfile` in this directory however you like:
+    //
+    "dockerfile": "Dockerfile"
   },
   "remoteUser": "vscode"
 }
