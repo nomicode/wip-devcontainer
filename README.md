@@ -1,7 +1,7 @@
-# GitHub VS Code Development Containers
+# GitHub Devcontainers
 
 <!-- markdownlint-disable-next-line MD036 -->
-_Development containers for simultaneous use with VS Code and GitHub Actions_
+_VS Code devcontainers designed to work with GitHub Actions_
 
 <!-- cspell:disable -->
 
