@@ -8,12 +8,12 @@ curl -fsSL "${BREW}" | /bin/bash
 # Set up Homebrew `shellenv` snippet
 cat > /tmp/shellenv <<EOF
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 EOF
 
-# Copy the `shellenv` snippet to the system Bash configuration, so that `brew`
-# is on the `PATH` for every user
-cat /tmp/shellenv >> /etc/bash.bashrc
+# Copy the `shellenv` snippet to the system environment configuration, so that
+# `brew` is on the `PATH` for every user
+cat /tmp/shellenv >> /etc/environment
 
 # Source the `shellenv` snippet and then remove
 # shellcheck disable=SC1091
