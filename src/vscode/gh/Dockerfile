@@ -9,4 +9,4 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu-21.04
 
 # Run the build
 COPY build.sh /tmp/build.sh
-RUN /tmp/build.sh && rm /tmp/build.sh
+RUN /tmp/build.sh & rm /tmp/build.sh 
