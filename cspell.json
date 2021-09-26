@@ -12,8 +12,10 @@
     "ghcr",
     "hadolint",
     "linuxbrew",
+    "localedef",
     "markdownlint",
     "passwordless",
+    "shellcheck",
     "shellenv"
   ]
 }

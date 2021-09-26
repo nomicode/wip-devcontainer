@@ -3,7 +3,14 @@
 
 # Last modified: 2021-09-25 23:10:29
 
-FROM mcr.microsoft.com/vscode/devcontainers/base:0-ubuntu
+# Available Ubuntu versions:
+#
+# - https://hub.docker.com/_/microsoft-vscode-devcontainers
+# - https://github.com/actions/virtual-environments
 
-# Create user for the GitHub-hosted runner
-RUN useradd --create-home runner
+# Pin the VS Code version to match the GitHub version
+FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu-21.04
+
+# Run the build
+COPY build.sh /tmp/build.sh
+RUN /tmp/build.sh && rm /tmp/build.sh
