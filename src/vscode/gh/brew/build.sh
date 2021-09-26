@@ -1,37 +1,47 @@
-#!/bin/sh -e
+#!/bin/sh -ex
 
-BREW="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
 
-# Install Homebrew
-curl -fsSL "${BREW}" | /bin/bash
+# Container image build script
+# =============================================================================
 
-# Set up Homebrew `shellenv` snippet
-cat > /tmp/shellenv <<EOF
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-EOF
+# Install APT dependencies
+# -----------------------------------------------------------------------------
 
-# Copy the `shellenv` snippet to the system Bash configuration, so that `brew`
-# is on the `PATH` for every user
-cat /tmp/shellenv >> /etc/bash.bashrc
+export DEBIAN_FRONTEND=noninteractive
 
-# Source the `shellenv` snippet and then remove
-# shellcheck disable=SC1091
-. /tmp/shellenv
-rm /tmp/shellenv
-
-# Update packages
 apt-get update
 apt-get dist-upgrade -y
 
-# Install build tools
 apt-get install -y --no-install-recommends build-essential
+
+
+# Install Homebrew
+# -----------------------------------------------------------------------------
+
+BREW="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+
+curl -fsSL "${BREW}" > /tmp/install.sh
+/bin/bash /tmp/install.sh
+rm /tmp/install.sh
+
+cat > /etc/profile.d/02-brew.sh <<EOF
+eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+EOF
+
+. /etc/profile
+
+brew doctor
+brew update
+
 brew install gcc
 
-# Clean up APT
+
+# Clean up
+# -----------------------------------------------------------------------------
+
 apt-get clean
 apt-get auto-remove
 rm -rf /var/lib/apt/lists/*
 
-# Clean up Homebrew
 brew cleanup -v -s --prune=all

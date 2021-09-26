@@ -3,17 +3,23 @@
 {
   "version": "0.2",
   "language": "en-US",
+  "caseSensitive": true,
   "dictionaries": ["bash", "softwareTerms"],
   "words": [
+    "checkbashisms",
     "devcontainer",
     "devcontainers",
+    "dockerfilelint",
     "EDITMSG",
+    "editorconfig",
     "eval",
     "ghcr",
     "hadolint",
+    "Homebew",
     "linuxbrew",
     "localedef",
     "markdownlint",
+    "noninteractive",
     "passwordless",
     "shellcheck",
     "shellenv"
