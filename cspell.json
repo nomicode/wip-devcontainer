@@ -14,6 +14,7 @@
     "linuxbrew",
     "markdownlint",
     "passwordless",
+    "shellcheck",
     "shellenv"
   ]
 }
