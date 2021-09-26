@@ -1,7 +1,8 @@
 # Dockerfile configuration
 # https://docs.docker.com/engine/reference/builder/
 
-# Last modified: 2021-09-25 23:10:29
+# Update timestamp to force a rebuild
+# 1632674108503
 
 # Available Ubuntu versions:
 #
