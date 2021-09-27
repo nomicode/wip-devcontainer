@@ -2,11 +2,11 @@
 # https://docs.docker.com/engine/reference/builder/
 
 # Update timestamp to force a rebuild
-# 1632783354372
+# 1632871332584
 
 # Pin the VS Code Ubuntu version to match the GitHub Ubuntu version
 FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu-21.04
 
 # Run the build
 COPY build.sh /tmp/build.sh
-RUN /tmp/build.sh && rm /tmp/build.sh 
+RUN /tmp/build.sh && rm /tmp/build.sh

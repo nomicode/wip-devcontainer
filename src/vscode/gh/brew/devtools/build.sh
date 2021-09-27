@@ -114,7 +114,12 @@ rm -rf /var/lib/apt/lists/*
 
 brew cleanup -v -s --prune=all
 
-# TODO: Move this step to a separate container variant
+# TODO:
+#
+# Move this step to a separate container variant OR move it to a different tag
+# (e.g., `minified`). Perhaps normal version could be used for VS Code, and the
+# `lite` version could be used for GitHub Actions?
+
 # Remove the Homebrew repository to substantially reduce the size of the image.
 # As consequence, users of this container will not be able to use the `brew`
 # command.

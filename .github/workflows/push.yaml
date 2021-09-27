@@ -66,9 +66,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       # cspell:disable-next-line
-      - uses: hadolint/hadolint-action@v1.5.0
-        with:
-          dockerfile: ${{ env.DIR }}/Dockerfile
+      # - uses: hadolint/hadolint-action@v1.5.0
+      #   with:
+      #     dockerfile: ${{ env.DIR }}/Dockerfile
       - uses: docker/metadata-action@v3
         id: meta
         with:
@@ -87,3 +87,35 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           secrets: GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+  status:
+    name: 'Status report'
+    needs:
+      - lint
+      - changes
+      - build
+    if: always() && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-20.04
+    steps:
+      # cspell:disable-next-line
+      - uses: Jimdo/should-i-notify-action@main
+        id: notify
+        with:
+          branch: main
+          needs_context: ${{ toJson(needs) }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      # cspell:disable-next-line
+      - uses: technote-space/workflow-conclusion-action@v2
+        if: steps.notify.outputs.should_send_message == 'yes'
+      # cspell:disable-next-line
+      - uses: jasongitmail/fast-webhook@v1
+        if: steps.notify.outputs.should_send_message == 'yes'
+        with:
+          url: ${{ secrets.ZAPIER_WEBHOOK_URL }}
+          json: |
+            {
+              "workflow": "${{ github.workflow }}",
+              "repository": "${{ github.repository }}",
+              "sha": "${{ github.sha }}",
+              "run_id": "${{ github.run_id }}",
+              "status": "${{ env.WORKFLOW_CONCLUSION }}"
+            }

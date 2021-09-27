@@ -29,7 +29,7 @@ cat > /etc/profile.d/02-brew.sh <<EOF
 eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 EOF
 
-. /etc/profile
+. /etc/profile.d/02-brew.sh 
 
 brew doctor
 brew update

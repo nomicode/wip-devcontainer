@@ -1,4 +1,5 @@
 # Dockerfile configuration
 # https://docs.docker.com/engine/reference/builder/
 
-FROM ghcr.io/bottle-garden/vscode/gh/brew:main
+# Pin the VS Code Ubuntu version to match the GitHub Ubuntu version
+FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu-21.04

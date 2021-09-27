@@ -22,6 +22,8 @@
     "timonwong.shellcheck",
     "get-woke.vscode-woke",
     "exiasr.hadolint",
-    "errata-ai.vale-server"
+    "errata-ai.vale-server",
+    "omartawfik.github-actions-vscode",
+    "me-dutour-mathieu.vscode-github-actions"
   ]
 }
