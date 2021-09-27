@@ -31,12 +31,6 @@ jobs:
         if: always()
         with:
           args: --check .
-    steps:
-      - uses: jasongitmail/fast-webhook@v1
-        if: always()
-        with:
-          url: ${{ secrets.ZAPIER_WEBHOOK_URL }}
-          json: '{"status": "${{ job.status }}"}'          
   changes:
     name: 'Detect changes'
     needs: lint
@@ -93,3 +87,12 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           secrets: GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+  status:
+    name: 'Status'
+    needs: [lint, changes, build]
+    if: always()
+    steps:
+      - uses: jasongitmail/fast-webhook@v1
+        with:
+          url: ${{ secrets.ZAPIER_WEBHOOK_URL }}
+          json: '{"status": "test"}'
