@@ -101,9 +101,9 @@ jobs:
         id: notify
         with:
           with:
-        branch: main
-          needs_context: ${{ toJson(needs) }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: main
+            needs_context: ${{ toJson(needs) }}
+            github_token: ${{ secrets.GITHUB_TOKEN }}
       status:
     steps:
       if: steps.notify.outputs.should_send_message == 'yes'
