@@ -89,11 +89,30 @@ jobs:
           secrets: GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
   status:
     name: 'Status'
-    needs: [lint, changes, build]
-    if: always()
+    needs:
+      - lint
+      - changes
+      - build
+    # if: always() && github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     steps:
+      - uses: Jimdo/should-i-notify-action@main
+        id: notify
+        with:
+          with:
+        branch: main
+          needs_context: ${{ toJson(needs) }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      status:
+    steps:
+      if: steps.notify.outputs.should_send_message == 'yes'
       - uses: jasongitmail/fast-webhook@v1
         with:
           url: ${{ secrets.ZAPIER_WEBHOOK_URL }}
-          json: '{"status": "test"}'
+          json: '{"status": "success"}'
+    steps:
+      if: steps.notify.outputs.should_send_message == 'no'
+      - uses: jasongitmail/fast-webhook@v1
+        with:
+          url: ${{ secrets.ZAPIER_WEBHOOK_URL }}
+          json: '{"status": "fail"}'
