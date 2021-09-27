@@ -91,6 +91,7 @@ jobs:
     name: 'Status'
     needs: [lint, changes, build]
     if: always()
+    runs-on: ubuntu-20.04
     steps:
       - uses: jasongitmail/fast-webhook@v1
         with:
