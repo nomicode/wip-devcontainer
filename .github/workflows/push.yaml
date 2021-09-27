@@ -33,6 +33,7 @@ jobs:
           args: --check .
   notify:
     name: Nofify
+    needs: lint
     if: always()
     runs-on: ubuntu-latest
     steps:
