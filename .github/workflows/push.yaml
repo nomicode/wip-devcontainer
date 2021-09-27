@@ -31,16 +31,12 @@ jobs:
         if: always()
         with:
           args: --check .
-  notify:
-    name: Nofify
-    needs: lint
-    if: always()
-    runs-on: ubuntu-latest
     steps:
       - uses: jasongitmail/fast-webhook@v1
+        if: always()
         with:
           url: ${{ secrets.ZAPIER_WEBHOOK_URL }}
-          json: '{"foo": "bar"}'
+          json: '{"status": "${{ job.status }}"}'          
   changes:
     name: 'Detect changes'
     needs: lint
