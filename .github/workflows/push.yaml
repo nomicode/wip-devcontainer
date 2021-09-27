@@ -93,17 +93,15 @@ jobs:
       - lint
       - changes
       - build
-    if: always() 
-    # if: always() && github.ref == 'refs/heads/main'
+    if: always() && github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     steps:
       - uses: Jimdo/should-i-notify-action@main
         id: notify
         with:
-          with:
-            branch: main
-            needs_context: ${{ toJson(needs) }}
-            github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          needs_context: ${{ toJson(needs) }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       status:
     steps:
       if: steps.notify.outputs.should_send_message == 'yes'
