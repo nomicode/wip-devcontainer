@@ -89,7 +89,8 @@ jobs:
           secrets: GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
   notify:
     name: Nofify
-    needs: build
+    needs: [lint, changes, build]
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - uses: jasongitmail/fast-webhook@v1
