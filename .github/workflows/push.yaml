@@ -93,6 +93,7 @@ jobs:
       - lint
       - changes
       - build
+    if: always() 
     # if: always() && github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     steps:
