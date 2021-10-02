@@ -95,6 +95,7 @@ The [vscode/gh/brew/devtools][devtools] container is based on the
 [vscode/gh/brew][brew] container installs a selection of development tools:
 
 - Git
+  - [GitHub CLI][gh] (`act`)
   - [act][act] (`act`)
 - Formatting
   - [EditorConfig][editorconfig] (`editorconfig`)
@@ -112,22 +113,25 @@ The [vscode/gh/brew/devtools][devtools] container is based on the
   - [CSpell][cspell] (`cspell`)
   - [woke][woke] (`woke`)
 
+<!--
 > 📝&nbsp;&nbsp;**Note:**
 >
 > This container does not container a working installation of Homebrew. The
 > Homebrew repository is removed to conserve image size.
+-->
 
-[devtools]: https://github.com/orgs/bottle-garden/packages/container/package/vscode%2Fgh%2Fbrew%2Fdevtools
 [act]: https://github.com/nektos/act
-[editorconfig]: https://editorconfig.org/
-[prettier]: https://prettier.io/
-[hadolint]: https://github.com/hadolint/hadolint
-[dockerfilelint]: https://github.com/replicatedhq/dockerfilelint
-[shellcheck]: https://www.shellcheck.net/
 [checkbashisms]: https://sourceforge.net/projects/checkbaskisms/
-[markdownlint-cli]: https://github.com/igorshubovych/markdownlint-cli
-[markdown-link-check]: https://github.com/tcort/markdown-link-check
 [cspell]: https://streetsidesoftware.github.io/cspell/
+[devtools]: https://github.com/orgs/bottle-garden/packages/container/package/vscode%2Fgh%2Fbrew%2Fdevtools
+[dockerfilelint]: https://github.com/replicatedhq/dockerfilelint
+[editorconfig]: https://editorconfig.org/
+[gh]: https://github.com/cli/cli
+[hadolint]: https://github.com/hadolint/hadolint
+[markdown-link-check]: https://github.com/tcort/markdown-link-check
+[markdownlint-cli]: https://github.com/igorshubovych/markdownlint-cli
+[prettier]: https://prettier.io/
+[shellcheck]: https://www.shellcheck.net/
 [woke]: https://getwoke.tech/
 
 ## Notes

@@ -61,14 +61,14 @@ jobs:
       matrix:
         variant: ${{ fromJSON(needs.changes.outputs.variants) }}
     env:
-      DIR: src/${{ matrix.variant }}
+      SRC: src/${{ matrix.variant }}
       ORG: bottle-garden
     steps:
       - uses: actions/checkout@v2
       # cspell:disable-next-line
       # - uses: hadolint/hadolint-action@v1.5.0
       #   with:
-      #     dockerfile: ${{ env.DIR }}/Dockerfile
+      #     dockerfile: ${{ env.SRC }}/Dockerfile
       - uses: docker/metadata-action@v3
         id: meta
         with:
@@ -82,7 +82,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: docker/build-push-action@v2
         with:
-          context: ${{ env.DIR }}
+          context: ${{ env.SRC }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

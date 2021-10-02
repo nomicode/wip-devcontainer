@@ -1,9 +1,7 @@
 #!/bin/sh -ex
 
-
 # Container image build script
 # =============================================================================
-
 
 # Install APT dependencies
 # -----------------------------------------------------------------------------
@@ -14,7 +12,6 @@ apt-get update
 apt-get dist-upgrade -y
 
 apt-get install -y --no-install-recommends build-essential
-
 
 # Install Homebrew
 # -----------------------------------------------------------------------------
@@ -29,13 +26,14 @@ cat > /etc/profile.d/02-brew.sh <<EOF
 eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 EOF
 
-. /etc/profile.d/02-brew.sh 
+# https://github.com/koalaman/shellcheck/wiki/SC1091
+# shellcheck disable=SC1091
+. /etc/profile.d/02-brew.sh
 
 brew doctor
 brew update
 
 brew install gcc
-
 
 # Clean up
 # -----------------------------------------------------------------------------
