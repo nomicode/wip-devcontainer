@@ -1,18 +1,4 @@
-// VS Code devcontainer configuration
-// https://code.visualstudio.com/docs/remote/devcontainerjson-reference
-// ============================================================================
-
 {
-  // --------------------------------------------------------------------------
-  // Point `image` to a published image, once available
-  "image": "ghcr.io/bottle-garden/vscode/gh/brew/devtools:main",
-  // --------------------------------------------------------------------------
-  // If no published image is available, bootstrap the devcontainer with the
-  // `Dockerfile` in this repository
-  // "build": {
-  //   "dockerfile": "Dockerfile"
-  // },
-  // --------------------------------------------------------------------------
-  "remoteUser": "vscode",
-  "userEnvProbe": "interactiveShell"
+  // https://github.com/microsoft/vscode-dev-containers/tree/main/containers/debian
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:debian"
 }
