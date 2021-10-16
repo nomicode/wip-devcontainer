@@ -14,14 +14,5 @@ ENV PATH=${BREW_PREFIX}/sbin:${BREW_PREFIX}/bin:${PATH}
 ARG DEBIAN_FRONTEND=noninteractive
 RUN bash -c "$(wget -qO- "${VSCODE}/homebrew-debian.sh")"
 
-COPY brew.txt .
-RUN cat brew.txt | \
-    xargs brew install
-
-COPY npm.txt .
-RUN npm install -g npm && \
-    cat npm.txt | \
-    xargs npm install -g --verbose --prefer-dedupe
-
 FROM scratch
 COPY --from=build / /
