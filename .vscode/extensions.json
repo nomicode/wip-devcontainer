@@ -2,7 +2,6 @@
 // https://code.visualstudio.com/docs/editor/extension-marketplace
 {
   "recommendations": [
-    // cspell:disable
     "jeff-hykin.better-dockerfile-syntax",
     "davidanson.vscode-markdownlint",
     "esbenp.prettier-vscode",
@@ -24,6 +23,7 @@
     "exiasr.hadolint",
     "errata-ai.vale-server",
     "omartawfik.github-actions-vscode",
-    "me-dutour-mathieu.vscode-github-actions"
+    "me-dutour-mathieu.vscode-github-actions",
+    "sharat.vscode-brewfile"
   ]
 }

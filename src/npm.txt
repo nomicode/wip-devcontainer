@@ -1,4 +1,0 @@
-cspell
-dockerfilelint
-editorconfig
-markdown-link-check

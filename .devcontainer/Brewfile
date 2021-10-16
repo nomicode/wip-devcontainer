@@ -1,0 +1,5 @@
+brew 'checkbashisms'
+brew 'get-woke/tap/woke'
+brew 'hadolint'
+brew 'prettier'
+brew 'shellcheck'
