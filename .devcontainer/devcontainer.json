@@ -1,4 +1,3 @@
 {
-  // https://github.com/microsoft/vscode-dev-containers/tree/main/containers/debian
-  "image": "mcr.microsoft.com/vscode/devcontainers/base:debian"
+  "image": "ghcr.io/bottle-garden/devcontainer:main"
 }

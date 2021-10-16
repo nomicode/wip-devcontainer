@@ -1,0 +1,5 @@
+checkbashisms
+get-woke/tap/woke
+hadolint
+prettier
+shellcheck
