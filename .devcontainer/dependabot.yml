@@ -1,18 +1,10 @@
-# version: 2
-# updates:
-#   - package-ecosystem: 'docker'
-#     directory: '/src/vscode/gh'
-#     schedule:
-#       interval: 'daily'
-#   - package-ecosystem: 'docker'
-#     directory: '/src/vscode/gh/brew'
-#     schedule:
-#       interval: 'daily'
-#   - package-ecosystem: 'docker'
-#     directory: '/src/vscode/gh/brew/devtools'
-#     schedule:
-#       interval: 'daily'
-#   - package-ecosystem: 'github-actions'
-#     directory: '/'
-#     schedule:
-#       interval: 'daily'
+version: 2
+updates:
+  - package-ecosystem: docker
+    directory: .devcontainer
+    schedule:
+      interval: daily
+  - package-ecosystem: docker
+    directory: src
+    schedule:
+      interval: daily
