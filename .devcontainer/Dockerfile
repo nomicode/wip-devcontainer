@@ -1,11 +1,9 @@
-FROM ghcr.io/bottle-garden/devcontainer:main as build
+# https://git.io/JKEJL
+FROM ghcr.io/bottle-garden/devcontainer:main
 
 USER root
 WORKDIR /tmp
 
-COPY * .
-RUN brew bundle && \
-    npm install -g --verbose
+COPY * /tmp/
 
-FROM scratch
-COPY --from=build / /
+RUN /tmp/init.sh

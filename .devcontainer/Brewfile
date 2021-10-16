@@ -1,5 +1,8 @@
-brew 'checkbashisms'
-brew 'get-woke/tap/woke'
-brew 'hadolint'
-brew 'prettier'
-brew 'shellcheck'
+#tap "get-woke/tap"
+tap "homebrew/bundle"
+tap "homebrew/core"
+
+# brew "hadolint"
+# brew "prettier"
+brew "shellcheck"
+# brew "get-woke/tap/woke"

@@ -1,0 +1,35 @@
+name: Push
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/bottle-garden/devcontainer:main 
+    steps:
+      - uses: actions/checkout@v2
+      - run: make devcontainer
+      - run: make test 
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: build
+          path: build
+  logs:
+    name: Logs
+    runs-on: ubuntu-latest
+    needs: test
+    if: always()
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v2
+      with:
+        name: build
+        path: build
+    - run: cat .github/matchers/shellcheck-gcc.json
+    - run: cat build/logs/*
