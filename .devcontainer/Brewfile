@@ -1,7 +1,6 @@
 tap "get-woke/tap"
 
 brew 'checkbashisms'
-brew 'get-woke/tap/woke'
 brew 'hadolint'
 brew 'jq'
 brew 'prettier'
