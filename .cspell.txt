@@ -1,0 +1,10 @@
+apk
+cli
+dedupe
+GOPATH
+mkdir
+nektos
+pipx
+usr
+vscodeuniversal
+snyk
