@@ -14,16 +14,9 @@
     "yzhang.markdown-all-in-one",
     "foxundermoon.shell-format",
     "ms-azuretools.vscode-docker",
-    "tamasfe.even-better-toml",
-    "donjayamanne.githistory",
-    "pascalreitermann93.vscode-yaml-sort",
-    "jsynowiec.vscode-insertdatestring",
     "timonwong.shellcheck",
     "get-woke.vscode-woke",
-    "exiasr.hadolint",
-    "errata-ai.vale-server",
     "omartawfik.github-actions-vscode",
-    "me-dutour-mathieu.vscode-github-actions",
-    "sharat.vscode-brewfile"
+    "me-dutour-mathieu.vscode-github-actions"
   ]
 }

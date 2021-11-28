@@ -1,0 +1,58 @@
+{
+  "digest": "sha256:309edb1f8b44990745b72e7d5acd304356deeb1eceb7a83c1028c4e0e5dad53b",
+  "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+  "size": 1368,
+  "config": {
+    "digest": "sha256:61a85419701fc4b1d247aeb1dd2ed6d1269c0e4c4c92bd714c4ce599e33ff6ae",
+    "mediaType": "application/vnd.docker.container.image.v1+json",
+    "size": 3529
+  },
+  "layers": [
+    {
+      "digest": "sha256:a0d0a0d46f8b52473982a3c466318f479767577551a53ffc9074c9fa7035982e",
+      "mediaType": "application/x-gzip",
+      "size": 2814446
+    },
+    {
+      "digest": "sha256:7b3ec82fe326155a2da8b34124ceb28d98c6e3e84f380d9658cd73098b31defe",
+      "mediaType": "application/octet-stream",
+      "size": 4928
+    },
+    {
+      "digest": "sha256:839c621aea6c3c45c3b2c769f4045cdd46ad72f8be08725cb0df5ca5d3718aa2",
+      "mediaType": "application/octet-stream",
+      "size": 45219308
+    },
+    {
+      "digest": "sha256:fbaba426653c35642e358e7f1b63a7704675c4ef399dda4cb26745d4d4a25bff",
+      "mediaType": "application/x-gzip",
+      "size": 622
+    },
+    {
+      "digest": "sha256:80140eeb042d42ad3fb98c598b6e98fe07709e2dc08c1d8945406eb3bd84cf7c",
+      "mediaType": "application/x-gzip",
+      "size": 302421279
+    },
+    {
+      "digest": "sha256:61a85419701fc4b1d247aeb1dd2ed6d1269c0e4c4c92bd714c4ce599e33ff6ae",
+      "mediaType": "text/plain; charset=utf-8",
+      "size": 3529
+    }
+  ],
+  "labels": {
+    "org.opencontainers.image.source": "https://github.com/bottle-garden/gh-vscode",
+    "org.opencontainers.image.title": "gh-vscode",
+    "org.opencontainers.image.revision": "eed7834c014ca9302e659ddbc498574cd9ea2c60",
+    "org.opencontainers.image.created": "2021-11-28T08:51:11.626Z",
+    "org.opencontainers.image.description": "VS Code devcontainer designed to work with GitHub Codespaces and GitHub Actions",
+    "com.visualstudio.code.devcontainers.source": "https://github.com/microsoft/vscode-dev-containers/",
+    "com.visualstudio.code.devcontainers.variant": "3.14",
+    "org.opencontainers.image.url": "https://github.com/bottle-garden/gh-vscode",
+    "org.opencontainers.image.licenses": "MIT",
+    "version": "0.203.1",
+    "com.visualstudio.code.devcontainers.id": "alpine",
+    "org.opencontainers.image.version": "universal",
+    "com.visualstudio.code.devcontainers.timestamp": "Fri, 29 Oct 2021 10:49:37 GMT",
+    "com.visualstudio.code.devcontainers.release": "v0.205.0"
+  }
+}

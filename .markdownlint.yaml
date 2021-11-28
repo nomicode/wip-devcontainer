@@ -2,3 +2,11 @@
 # https://github.com/DavidAnson/markdownlint/blob/main/schema/
 
 default: true
+
+# Line length
+# https://github.com/DavidAnson/markdownlint/blob/v0.24.0/doc/Rules.md#md013
+MD013: false
+
+# Emphasis used instead of a heading
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md036
+MD036: false
