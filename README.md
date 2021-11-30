@@ -2,18 +2,11 @@
 
 _[VS Code][vscode] [devcontainer][devcontainer] designed to work with [GitHub Codespaces][codespaces] and [GitHub Actions][actions]_
 
-[vscode]: https://code.visualstudio.com/
-[devcontainer]: https://code.visualstudio.com/docs/remote/containers
-[codespaces]: https://github.com/features/codespaces
-[actions]: https://docs.github.com/en/actions
-
 ## Tags
 
 ### Universal
 
 The `universal` tag includes the following pre-installed software:
-
-[universal]: https://github.com/bottle-garden/gh-vscode/pkgs/container/gh-vscode/universal
 
 - Git
   - [GitHub CLI][gh] (`gh`)
@@ -31,13 +24,18 @@ The `universal` tag includes the following pre-installed software:
   - [CSpell][cspell] (`cspell`)
   - [woke][woke] (`woke`)
 
-[gh]: https://github.com/cli/cli
 [act]: https://github.com/nektos/act
-[editorconfig]: https://editorconfig.org/
-[prettier]: https://prettier.io/
-[dockerfilelint]: https://github.com/replicatedhq/dockerfilelint
-[shellcheck]: https://www.shellcheck.net/
-[markdownlint-cli]: https://github.com/igorshubovych/markdownlint-cli
-[markdown-link-check]: https://github.com/tcort/markdown-link-check
+[actions]: https://docs.github.com/en/actions
+[codespaces]: https://github.com/features/codespaces
 [cspell]: https://streetsidesoftware.github.io/cspell/
+[devcontainer]: https://code.visualstudio.com/docs/remote/containers
+[dockerfilelint]: https://github.com/replicatedhq/dockerfilelint
+[editorconfig]: https://editorconfig.org/
+[gh]: https://github.com/cli/cli
+[markdown-link-check]: https://github.com/tcort/markdown-link-check
+[markdownlint-cli]: https://github.com/igorshubovych/markdownlint-cli
+[prettier]: https://prettier.io/
+[shellcheck]: https://www.shellcheck.net/
+[universal]: https://github.com/bottle-garden/gh-vscode/pkgs/container/gh-vscode/universal
+[vscode]: https://code.visualstudio.com/
 [woke]: https://getwoke.tech/
