@@ -11,10 +11,18 @@
 
 apk update
 
+# Most of this is needed for building Python packages
 apk add --no-cache \
     coreutils \
     gcc \
     libc-dev \
+    libxml2 \
+    libxml2-dev \
+    libxslt \
+    libxslt-dev \
+    autoconf \
+    automake \
+    libtool \
     make
 
 apk add --no-cache \
