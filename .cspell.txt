@@ -1,10 +1,13 @@
 apk
 cli
+coreutils
 dedupe
+ghc
 GOPATH
+libc
 mkdir
 nektos
 pipx
+snyk
 usr
 vscodeuniversal
-snyk
