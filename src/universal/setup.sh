@@ -27,6 +27,7 @@ pipx install proselint
 pipx install snooty
 pipx install prospector[with_everything]
 pipx install reorder_python_imports
+pipx install poetry
 
 apk add --no-cache npm
 npm install --global npm@latest
