@@ -22,12 +22,23 @@ npm install --global --prefer-dedupe \
     cspell \
     prettier \
     dockerfilelint \
+
     markdownlint-cli \
     markdown-link-check \
     stylelint \
     stylelint-config-standard \
     jscpd \
     snyk
+
+# TODO: Can't seem to get remark-lint to work when I install it
+
+# https://github.com/drewbourne/vscode-remark-lint
+# https://github.com/remarkjs/remark-validate-links
+
+    # remark-cli \
+    # remark-lint \
+    # remark-preset-lint-markdown-style-guide \
+    # remark-stringify \
 
 echo "${PATH}"
 echo "${GOPATH}"
