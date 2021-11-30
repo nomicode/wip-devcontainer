@@ -1,7 +1,13 @@
 #!/bin/bash -e
 
 # TODO: Turn this into a makefile so I can see what's happening during the
-# build
+# build.
+#
+# More importantly, I can define targets for individual tags. The targets can
+# then specify what they want installed. If I set the dependency chains up
+# properly, this will mean an efficient way of building exactly what is needed
+# for each specific tag without the need for code duplication or a complex web
+# of multiple install scripts.
 
 apk update
 
