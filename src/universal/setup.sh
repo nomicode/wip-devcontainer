@@ -34,8 +34,8 @@ apk add --no-cache \
 pip install --upgrade pip
 pip install pipx
 
-PIPX_BIN_DIR=/usr/local/bin
-export PIPX_BIN_DIR
+PIPX_HOME=/usr/local
+export PIPX_HOME
 pipx install yamllint
 pipx install proselint
 pipx install snooty
