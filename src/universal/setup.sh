@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/sh -e
 
 # TODO: Turn this into a makefile so I can see what's happening during the
 # build.
@@ -20,22 +20,38 @@ apk add --no-cache \
     libxml2-dev \
     libxslt \
     libxslt-dev \
+    libffi-dev \
+    libtool \
+    bzip2-dev \
+    readline-dev \
+    openssl-dev \
+    sqlite-dev \
     autoconf \
     automake \
-    libtool \
     make
 
-apk add --no-cache \
-    libffi-dev \
-    python3 \
-    python3-dev \
-    py3-pip \
-    black
+apk add --no-cache python3-dev
+
+PYENV_ROOT=/usr/local/pyenv
+export PYENV_ROOT
+curl https://pyenv.run | bash
+echo 'PATH="/usr/local/pyenv/bin/:${PATH}"' > /etc/profile.d/pyenv.sh
+echo 'eval "$(pyenv init --path)"' >> /etc/profile.d/pyenv.sh
+. /etc/profile.d/pyenv.sh
+
+# Reserved for Python specific images
+# pyenv install 3.7.12
+# pyenv install 3.8.12
+pyenv install 3.9.9
+pyenv global 3.9.9
+
 pip install --upgrade pip
 pip install pipx
 
-PIPX_HOME=/usr/local
+PIPX_HOME=/usr/local/pipx
 export PIPX_HOME
+PIPX_BIN_DIR=/usr/local/bin
+export PIPX_BIN_DIR
 pipx install yamllint
 pipx install proselint
 pipx install snooty
