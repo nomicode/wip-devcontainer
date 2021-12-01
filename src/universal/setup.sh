@@ -32,12 +32,7 @@ apk add --no-cache \
 
 apk add --no-cache python3-dev
 
-PYENV_ROOT=/usr/local/pyenv
-export PYENV_ROOT
 curl https://pyenv.run | bash
-echo 'PATH="/usr/local/pyenv/bin/:${PATH}"' > /etc/profile.d/pyenv.sh
-echo 'eval "$(pyenv init --path)"' >> /etc/profile.d/pyenv.sh
-. /etc/profile.d/pyenv.sh
 
 # Reserved for Python specific images
 # pyenv install 3.7.12
@@ -45,13 +40,16 @@ echo 'eval "$(pyenv init --path)"' >> /etc/profile.d/pyenv.sh
 pyenv install 3.9.9
 pyenv global 3.9.9
 
+# Slim down installation
+# rm -rf /usr/local/pyenv/versions/3.9.9/lib/python3.9/test
+# rm -rf /usr/local/pyenv/versions/3.9.9/lib/python3.9/config-*
+# find . -type d -name __pycache__ | while read -r dir; do
+#     rm -rf "${dir}"
+# done
+
 pip install --upgrade pip
 pip install pipx
 
-PIPX_HOME=/usr/local/pipx
-export PIPX_HOME
-PIPX_BIN_DIR=/usr/local/bin
-export PIPX_BIN_DIR
 pipx install yamllint
 pipx install proselint
 pipx install snooty

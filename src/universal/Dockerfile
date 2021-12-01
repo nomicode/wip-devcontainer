@@ -1,7 +1,13 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:alpine
 
+ENV PYENV_ROOT="/usr/local/pyenv"
+ENV PATH="${PYENV_ROOT}/bin:${PATH}"
+ENV PATH="${PYENV_ROOT}/shims:${PATH}"
+ENV PIPX_HOME="/usr/local/pipx"
+ENV PIPX_BIN_DIR="/usr/local/bin"
 ENV GOPATH="/usr/local/go"
-ENV PATH="/usr/local/go/bin:${PATH}"
+ENV PATH="${GOPATH}/bin:${PATH}"
+ENV USE_EMOJI="false"
 
 COPY * /tmp/
 # RUN make clean && make install
