@@ -72,16 +72,11 @@ apk add --no-cache go
 mkdir /usr/local/go
 go get -u github.com/get-woke/woke
 go get -u github.com/client9/misspell/cmd/misspell
+go get -u github.com/pksunkara/whitespaces
 
 apk add --no-cache \
     cargo
 cargo install --root=/usr/local shellharden
-
-apk add --no-cache \
-    ghc \
-    cabal
-cabal update
-cabal install --installdir=/usr/local/bin fix-whitespace
 
 apk add --no-cache \
     ruby \
