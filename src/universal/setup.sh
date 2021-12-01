@@ -10,10 +10,22 @@
 # of multiple install scripts.
 
 apk update
+apk upgrade
 
-# Most of this is needed for building Python packages
 apk add --no-cache \
-    coreutils \
+    tidyhtml \
+    github-cli \
+    shellcheck \
+    shfmt \
+    htop \
+    ncdu \
+    make \
+    file \
+    bash-completion \
+
+# -----------------------------------------------------------------------------
+
+apk add --no-cache \
     gcc \
     libc-dev \
     libxml2 \
@@ -28,9 +40,10 @@ apk add --no-cache \
     sqlite-dev \
     autoconf \
     automake \
-    make
+    python3-dev \
+    go
 
-apk add --no-cache python3-dev
+# -----------------------------------------------------------------------------
 
 curl https://pyenv.run | bash
 
@@ -39,13 +52,6 @@ curl https://pyenv.run | bash
 # pyenv install 3.8.12
 pyenv install 3.9.9
 pyenv global 3.9.9
-
-# Slim down installation
-# rm -rf /usr/local/pyenv/versions/3.9.9/lib/python3.9/test
-# rm -rf /usr/local/pyenv/versions/3.9.9/lib/python3.9/config-*
-# find . -type d -name __pycache__ | while read -r dir; do
-#     rm -rf "${dir}"
-# done
 
 pip install --upgrade pip
 pip install pipx
@@ -57,7 +63,10 @@ pipx install prospector[with_everything]
 pipx install reorder_python_imports
 pipx install poetry
 
+# -----------------------------------------------------------------------------
+
 apk add --no-cache npm
+npm config set fund false --global
 npm install --global npm@latest
 npm install --global --prefer-dedupe \
     editorconfig \
@@ -72,6 +81,8 @@ npm install --global --prefer-dedupe \
     jscpd \
     snyk
 
+# -----------------------------------------------------------------------------
+
 # TODO: Can't seem to get remark-lint to work when I install it
 
 # https://github.com/drewbourne/vscode-remark-lint
@@ -82,20 +93,17 @@ npm install --global --prefer-dedupe \
 # remark-preset-lint-markdown-style-guide \
 # remark-stringify \
 
-apk add --no-cache go
-mkdir /usr/local/go
+# -----------------------------------------------------------------------------
+
+# mkdir "${GOPATH}"
 go get -u github.com/get-woke/woke
 go get -u github.com/client9/misspell/cmd/misspell
 go get -u github.com/pksunkara/whitespaces
 
-apk add --no-cache \
-    cargo
-cargo install --root=/usr/local shellharden
+# -----------------------------------------------------------------------------
 
-apk add --no-cache \
-    ruby \
-    tidyhtml \
-    github-cli \
-    shellcheck \
-    shfmt \
-    bash-completion
+rm -rf /var/cache/apk/*
+
+rm -rf /root/.cache
+rm -rf /root/.config
+rm -rf /root/.npm

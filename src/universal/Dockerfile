@@ -9,6 +9,10 @@ ENV GOPATH="/usr/local/go"
 ENV PATH="${GOPATH}/bin:${PATH}"
 ENV USE_EMOJI="false"
 
+# TODO: The following two commands create two layers. Use a multistage build to
+# copy files on top of base alpine image as a single layer.
+#
+# - https://pythonspeed.com/articles/multi-stage-docker-python/
 COPY * /tmp/
 # RUN make clean && make install
 RUN /tmp/setup.sh

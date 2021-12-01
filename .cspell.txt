@@ -2,12 +2,17 @@ apk
 cli
 coreutils
 dedupe
+deps
 ghc
 GOPATH
 libc
 mkdir
+ncdu
 nektos
 pipx
+pksunkara
+pydoc
+pyenv
 snyk
 usr
 vscodeuniversal
