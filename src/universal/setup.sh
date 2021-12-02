@@ -17,11 +17,15 @@ apk add --no-cache \
     github-cli \
     shellcheck \
     shfmt \
+    editorconfig-checker \
     htop \
     ncdu \
     make \
     file \
     bash-completion \
+
+# TODO: pandoc install fails for some reason
+# TODO: prettier install fails for some reason
 
 # -----------------------------------------------------------------------------
 
@@ -69,7 +73,6 @@ apk add --no-cache npm
 npm config set fund false --global
 npm install --global npm@latest
 npm install --global --prefer-dedupe \
-    editorconfig \
     cspell \
     prettier \
     dockerfilelint \
@@ -77,7 +80,6 @@ npm install --global --prefer-dedupe \
     markdown-link-check \
     stylelint \
     stylelint-config-standard \
-    pandoc \
     jscpd \
     snyk
 
@@ -96,9 +98,9 @@ npm install --global --prefer-dedupe \
 # -----------------------------------------------------------------------------
 
 # mkdir "${GOPATH}"
-go get -u github.com/get-woke/woke
-go get -u github.com/client9/misspell/cmd/misspell
-go get -u github.com/pksunkara/whitespaces
+go install github.com/get-woke/woke@latest
+go install github.com/client9/misspell/cmd/misspell@latest
+go install github.com/pksunkara/whitespaces@latest
 
 # -----------------------------------------------------------------------------
 
