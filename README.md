@@ -1,4 +1,6 @@
 # GitHub VS Code Development Container
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbottle-garden%2Fgh-vscode.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbottle-garden%2Fgh-vscode?ref=badge_shield)
+
 
 _[VS Code][vscode] [devcontainer][devcontainer] designed to work with [GitHub Codespaces][codespaces] and [GitHub Actions][actions]_
 
@@ -39,3 +41,7 @@ The `universal` tag includes the following pre-installed software:
 [universal]: https://github.com/bottle-garden/gh-vscode/pkgs/container/gh-vscode/universal
 [vscode]: https://code.visualstudio.com/
 [woke]: https://getwoke.tech/
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbottle-garden%2Fgh-vscode.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbottle-garden%2Fgh-vscode?ref=badge_large)
