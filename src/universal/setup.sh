@@ -69,6 +69,7 @@ apk add --no-cache npm
 npm config set fund false --global
 npm install --global npm@latest
 npm install --global --prefer-dedupe \
+    editorconfig-checker \
     cspell \
     prettier \
     dockerfilelint \
@@ -95,7 +96,6 @@ npm install --global --prefer-dedupe \
 # -----------------------------------------------------------------------------
 
 # mkdir "${GOPATH}"
-go get -u gitlab.com/greut/eclint/cmd/eclint
 go get -u github.com/get-woke/woke
 go get -u github.com/client9/misspell/cmd/misspell
 go get -u github.com/pksunkara/whitespaces
