@@ -22,6 +22,7 @@ apk add --no-cache \
     ncdu \
     make \
     file \
+    util-linux \
     bash-completion \
 
 # TODO: pandoc install fails for some reason
@@ -64,7 +65,7 @@ pipx install yamllint
 pipx install proselint
 pipx install snooty
 pipx install prospector[with_everything]
-pipx install reorder_python_imports
+pipx install reorder-python-imports
 pipx install poetry
 
 # -----------------------------------------------------------------------------
