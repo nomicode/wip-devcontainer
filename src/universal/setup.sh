@@ -65,7 +65,7 @@ pipx install yamllint
 pipx install proselint
 pipx install snooty
 pipx install prospector[with_everything]
-pipx install isort
+pipx install reorder-python-imports
 pipx install poetry
 
 # -----------------------------------------------------------------------------
