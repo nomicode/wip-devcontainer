@@ -22,6 +22,7 @@ apk add --no-cache \
     ncdu \
     make \
     file \
+    util-linux \
     bash-completion \
 
 # TODO: pandoc install fails for some reason
