@@ -23,6 +23,7 @@ apk add --no-cache \
     make \
     file \
     util-linux \
+    diffutils \
     bash-completion \
 
 # TODO: pandoc install fails for some reason
