@@ -47,7 +47,6 @@ apk add --no-cache \
     autoconf \
     automake \
     python3-dev \
-    go
 
 # -----------------------------------------------------------------------------
 
@@ -99,10 +98,26 @@ npm install --global --prefer-dedupe \
 
 # -----------------------------------------------------------------------------
 
+apk add --no-cache go
+
 # mkdir "${GOPATH}"
 go install github.com/get-woke/woke@latest
 go install github.com/client9/misspell/cmd/misspell@latest
 go install github.com/pksunkara/whitespaces@latest
+
+# -----------------------------------------------------------------------------
+
+apk add --no-cache cargo
+
+# https://github.com/lycheeverse/lychee
+# TODO: Compiling this from source pulls in a LOT of dependencies. Perhaps it
+# would be better to install a pre-compiled binary?
+cargo install --no-default-features lychee
+
+# TODO: Clean up rust source files and other caches?
+
+# TODO: Look into setting GitHub token to avoid getting rate limited
+# https://github.com/lycheeverse/lychee#github-token
 
 # -----------------------------------------------------------------------------
 
