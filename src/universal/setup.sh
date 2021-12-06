@@ -13,18 +13,18 @@ apk update
 apk upgrade
 
 apk add --no-cache \
-    tidyhtml \
-    github-cli \
-    shellcheck \
-    shfmt \
-    editorconfig-checker \
-    htop \
-    ncdu \
-    make \
-    file \
-    util-linux \
-    diffutils \
-    bash-completion \
+  tidyhtml \
+  github-cli \
+  shellcheck \
+  shfmt \
+  editorconfig-checker \
+  htop \
+  ncdu \
+  make \
+  file \
+  util-linux \
+  diffutils \
+  bash-completion
 
 # TODO: pandoc install fails for some reason
 # TODO: prettier install fails for some reason
@@ -32,21 +32,21 @@ apk add --no-cache \
 # -----------------------------------------------------------------------------
 
 apk add --no-cache \
-    gcc \
-    libc-dev \
-    libxml2 \
-    libxml2-dev \
-    libxslt \
-    libxslt-dev \
-    libffi-dev \
-    libtool \
-    bzip2-dev \
-    readline-dev \
-    openssl-dev \
-    sqlite-dev \
-    autoconf \
-    automake \
-    python3-dev \
+  gcc \
+  libc-dev \
+  libxml2 \
+  libxml2-dev \
+  libxslt \
+  libxslt-dev \
+  libffi-dev \
+  libtool \
+  bzip2-dev \
+  readline-dev \
+  openssl-dev \
+  sqlite-dev \
+  autoconf \
+  automake \
+  python3-dev
 
 # -----------------------------------------------------------------------------
 
@@ -74,15 +74,15 @@ apk add --no-cache npm
 npm config set fund false --global
 npm install --global npm@latest
 npm install --global --prefer-dedupe \
-    cspell \
-    prettier \
-    dockerfilelint \
-    markdownlint-cli \
-    markdown-link-check \
-    stylelint \
-    stylelint-config-standard \
-    jscpd \
-    snyk
+  cspell \
+  prettier \
+  dockerfilelint \
+  markdownlint-cli \
+  markdown-link-check \
+  stylelint \
+  stylelint-config-standard \
+  jscpd \
+  snyk
 
 # -----------------------------------------------------------------------------
 
