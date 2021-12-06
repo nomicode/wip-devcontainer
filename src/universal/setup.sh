@@ -9,6 +9,40 @@
 # for each specific tag without the need for code duplication or a complex web
 # of multiple install scripts.
 
+usermod --shell /bin/bash root
+
+# Temporary hack to force the `root` user to pick up environment variables set
+# by the Dockerfile when the container is crated. Funnily enough, the
+# environment variables set in the Dockerfile are picked up during image
+# creation.
+#
+# TODO: Figure out why the `root` user does not pick up these environment
+# variables
+cat >> ~/.bashrc <<EOF
+
+set -a
+. /etc/environment >> ~/.bashrc
+set +a
+EOF
+
+# I thought this would fix it, but it doesnt
+apk add --no-cache linux-pam
+
+# Or perhaps:
+# echo "Defaults env_keep += \"PATH\"" > /etc/sudoers.d/env
+# Run `cat /etc/sudoers.d/vscode` for more info
+# https://askubuntu.com/questions/161924
+# https://stackoverflow.com/questions/66687881
+# https://www.thegeekdiary.com/user-environment-variables-with-su-and-sudo-in-linux/
+# https://superuser.com/questions/636283
+# https://superuser.com/questions/232231
+# https://unix.stackexchange.com/questions/8646
+# https://unix.stackexchange.com/questions/292815
+# https://askubuntu.com/questions/554970
+# https://askubuntu.com/questions/1134889
+
+# -----------------------------------------------------------------------------
+
 apk update
 apk upgrade
 
@@ -33,6 +67,7 @@ apk add --no-cache \
 
 apk add --no-cache \
     gcc \
+    g++ \
     libc-dev \
     libxml2 \
     libxml2-dev \
@@ -47,7 +82,6 @@ apk add --no-cache \
     autoconf \
     automake \
     python3-dev \
-    go
 
 # -----------------------------------------------------------------------------
 
@@ -66,8 +100,11 @@ pipx install yamllint
 pipx install proselint
 pipx install snooty
 pipx install prospector[with_everything]
-pipx install reorder-python-imports
+pipx install reorder_python_imports
+pipx install csvkit
 pipx install poetry
+
+# TODO: `pipx completions`
 
 # -----------------------------------------------------------------------------
 
@@ -79,7 +116,6 @@ npm install --global --prefer-dedupe \
     prettier \
     dockerfilelint \
     markdownlint-cli \
-    markdown-link-check \
     stylelint \
     stylelint-config-standard \
     jscpd \
@@ -99,10 +135,25 @@ npm install --global --prefer-dedupe \
 
 # -----------------------------------------------------------------------------
 
-# mkdir "${GOPATH}"
+apk add --no-cache go
+
 go install github.com/get-woke/woke@latest
 go install github.com/client9/misspell/cmd/misspell@latest
 go install github.com/pksunkara/whitespaces@latest
+
+# -----------------------------------------------------------------------------
+
+apk add --no-cache cargo
+
+# https://github.com/lycheeverse/lychee
+# TODO: Compiling this from source pulls in a LOT of dependencies. Perhaps it
+# would be better to install a pre-compiled binary?
+cargo install --no-default-features lychee
+
+# TODO: Clean up rust source files and other caches?
+
+# TODO: Look into setting GitHub token to avoid getting rate limited
+# https://github.com/lycheeverse/lychee#github-token
 
 # -----------------------------------------------------------------------------
 
