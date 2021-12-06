@@ -6,6 +6,7 @@ ENV PATH="${PYENV_ROOT}/shims:${PATH}"
 ENV PIPX_HOME="/usr/local/pipx"
 ENV PIPX_BIN_DIR="/usr/local/bin"
 ENV GOPATH="/usr/local/go"
+ENV CARGO_HOME="/usr/local/cargo"
 ENV PATH="${GOPATH}/bin:${PATH}"
 ENV USE_EMOJI="false"
 
