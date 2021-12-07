@@ -5,10 +5,6 @@ ENV PATH="${PYENV_ROOT}/bin:${PATH}"
 ENV PATH="${PYENV_ROOT}/shims:${PATH}"
 ENV PIPX_HOME="/usr/local/pipx"
 ENV PIPX_BIN_DIR="/usr/local/bin"
-ENV GOPATH="/usr/local/go"
-ENV GOBIN="/usr/local/bin"
-ENV CARGO_HOME="/usr/local/cargo"
-ENV CARGO_TARGET_DIR="/usr/local/bin"
 ENV USE_EMOJI="false"
 
 # TODO: The following two commands create two layers. Use a multistage build to

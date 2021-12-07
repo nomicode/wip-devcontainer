@@ -85,7 +85,8 @@ apk add --no-cache \
 
 # -----------------------------------------------------------------------------
 
-curl https://pyenv.run | bash
+echo "Setting up pyenv..."
+curl -fsSL https://pyenv.run | bash
 
 # Reserved for Python specific images
 # pyenv install 3.7.12
@@ -93,8 +94,10 @@ curl https://pyenv.run | bash
 pyenv install 3.9.9
 pyenv global 3.9.9
 
-pip install --upgrade pip
-pip install pipx
+(
+    pip install --upgrade pip
+    pip install pipx
+) 2>&1 | grep -v "WARNING: Running pip as the 'root' user"
 
 pipx install yamllint
 pipx install proselint
@@ -110,10 +113,14 @@ pipx install poetry
 
 apk add --no-cache npm
 npm config set fund false --global
-npm install --global npm@latest
-npm install --global --prefer-dedupe \
+# TODO: Adding `--no-audit` prevents these commands from printing information
+# about which packages are installed
+echo "Installing Node packages..."
+npm install --global --no-audit npm@latest
+npm install --global --no-audit --prefer-dedupe \
     cspell \
     prettier \
+    lintspaces \
     dockerfilelint \
     markdownlint-cli \
     stylelint \
@@ -135,22 +142,43 @@ npm install --global --prefer-dedupe \
 
 # -----------------------------------------------------------------------------
 
-apk add --no-cache go
+# Avoid installing Go and compiling from source, which pulls in a lot of
+# dependencies and takes a lot of time
 
-go install github.com/get-woke/woke@latest
-go install github.com/client9/misspell/cmd/misspell@latest
-go install github.com/pksunkara/whitespaces@latest
+WOKE_PKG="woke-0.17.1-linux-amd64"
+WOKE_TGZ="${WOKE_PKG}.tar.gz"
+WOKE_URL="https://git.io/JDvO1"
+echo "Downloading ${WOKE_TGZ}..."
+curl -fsSL "${WOKE_URL}" > "${WOKE_TGZ}"
+echo "Installing ${WOKE_PKG}..."
+tar -xzf "${WOKE_TGZ}"
+chmod 755 "${WOKE_PKG}/woke"
+mv "${WOKE_PKG}/woke" /usr/local/bin
+
+MISSPELL_PKG="misspell_0.3.4_linux_64bit"
+MISSPELL_TGZ="${MISSPELL_PKG}.tar.gz"
+MISSPELL_URL="https://git.io/JDvms"
+echo "Downloading ${MISSPELL_TGZ}..."
+curl -fsSL "${MISSPELL_URL}" > "${MISSPELL_TGZ}"
+echo "Installing ${MISSPELL_PKG}..."
+tar -xzf "${MISSPELL_TGZ}"
+chmod 755 misspell
+mv misspell /usr/local/bin
 
 # -----------------------------------------------------------------------------
 
-apk add --no-cache cargo
+# Avoid installing Rust and compiling from source, which pulls in a lot of
+# dependencies and takes a lot of time
 
-# https://github.com/lycheeverse/lychee
-# TODO: Compiling this from source pulls in a LOT of dependencies. Perhaps it
-# would be better to install a pre-compiled binary?
-cargo install --no-default-features lychee
-
-# TODO: Clean up rust source files and other caches?
+LYCHEE_PKG="lychee-v0.8.1-x86_64-unknown-linux-musl"
+LYCHEE_TGZ="${LYCHEE_PKG}.tar.gz"
+LYCHEE_URL="https://git.io/JDvLb"
+echo "Downloading ${LYCHEE_TGZ}..."
+curl -fsSL "${LYCHEE_URL}" > "${LYCHEE_TGZ}"
+echo "Installing ${LYCHEE_PKG}..."
+tar -xzf "${LYCHEE_TGZ}"
+chmod 755 lychee
+mv lychee /usr/local/bin
 
 # TODO: Look into setting GitHub token to avoid getting rate limited
 # https://github.com/lycheeverse/lychee#github-token
