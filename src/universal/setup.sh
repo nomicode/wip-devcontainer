@@ -56,9 +56,9 @@ apk add --no-cache \
     ncdu \
     make \
     file \
-    parallel \
     util-linux \
     diffutils \
+    moreutils \
     bash-completion \
 
 # TODO: pandoc install fails for some reason
