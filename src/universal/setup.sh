@@ -56,6 +56,7 @@ apk add --no-cache \
     ncdu \
     make \
     file \
+    parallel \
     util-linux \
     diffutils \
     bash-completion \
