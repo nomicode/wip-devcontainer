@@ -85,23 +85,18 @@ apk add --no-cache \
     sqlite-dev \
     autoconf \
     automake \
-    python3 \
-    python3-dev \
-    py3-pip
+    python3-dev
 
 # -----------------------------------------------------------------------------
 
-# echo "Setting up pyenv..."
-# curl -fsSL https://pyenv.run | bash
+echo "Setting up pyenv..."
+curl -fsSL https://pyenv.run | bash
 
-# # Reserved for Python specific images
-# # pyenv install 3.7.12
-# # pyenv install 3.8.12
-# pyenv install 3.9.9
-# pyenv global 3.9.9
-
-# Symlink `python` to `python3` because Alpine refuses to
-ln -s /usr/bin/python3 /usr/bin/python
+# Reserved for Python specific images
+# pyenv install 3.7.12
+# pyenv install 3.8.12
+pyenv install 3.9.9
+pyenv global 3.9.9
 
 (
     pip install --upgrade pip
