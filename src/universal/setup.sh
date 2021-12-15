@@ -28,7 +28,7 @@ set -a
 set +a
 EOF
 
-# I thought this would fix it, but it doesnt
+# I thought this would fix it, but it doesn't
 apk add --no-cache linux-pam
 
 # Or perhaps:
@@ -85,36 +85,31 @@ apk add --no-cache \
     sqlite-dev \
     autoconf \
     automake \
-    python3 \
-    python3-dev \
-    py3-pip
+    python3-dev
 
 # -----------------------------------------------------------------------------
 
-# echo "Setting up pyenv..."
-# curl -fsSL https://pyenv.run | bash
+echo "Setting up pyenv..."
+curl -fsSL https://pyenv.run | bash
 
-# # Reserved for Python specific images
-# # pyenv install 3.7.12
-# # pyenv install 3.8.12
-# pyenv install 3.9.9
-# pyenv global 3.9.9
-
-# Symlink `python` to `python3` because Alpine refuses to
-ln -s /usr/bin/python3 /usr/bin/python
+# Reserved for Python specific images
+# pyenv install 3.7.12
+# pyenv install 3.8.12
+pyenv install 3.9.9
+pyenv global 3.9.9
 
 (
     pip install --upgrade pip
     pip install pipx
 ) 2>&1 | grep -v "WARNING: Running pip as the 'root' user"
 
-pipx install yamllint
-pipx install proselint
-pipx install snooty
-pipx install prospector[with_everything]
-pipx install reorder_python_imports
-pipx install csvkit
-pipx install poetry
+pipx install "yamllint"
+pipx install "proselint"
+pipx install "snooty"
+pipx install "prospector[with_everything]"
+pipx install "reorder_python_imports"
+pipx install "csvkit"
+pipx install "poetry"
 
 # TODO: `pipx completions`
 
