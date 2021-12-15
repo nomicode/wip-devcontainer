@@ -1,5 +1,5 @@
 {
   // "image": "mcr.microsoft.com/vscode/devcontainers/base:alpine",
-  "image": "ghcr.io/bottle-garden/gh-vscode/devcontainer:universal",
+  "image": "nomiro/devcontainers:universal",
   "remoteUser": "vscode"
 }

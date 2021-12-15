@@ -2,9 +2,17 @@
 
 _[VS Code][vscode] [devcontainer][devcontainer] designed to work with [GitHub Codespaces][codespaces] and [GitHub Actions][actions]_
 
+For more information view the [Docker Hub homepage].
+
 ## Tags
 
 ### Universal
+
+Pull the `universal` tag with this command:
+
+```console
+$ sh docker pull nomiro/devcontainers:universal
+```
 
 The `universal` tag includes the following pre-installed software:
 
@@ -29,6 +37,7 @@ The `universal` tag includes the following pre-installed software:
 [codespaces]: https://github.com/features/codespaces
 [cspell]: https://streetsidesoftware.github.io/cspell/
 [devcontainer]: https://code.visualstudio.com/docs/remote/containers
+[Docker Hub homepage]: https://hub.docker.com/r/nomiro/devcontainers
 [dockerfilelint]: https://github.com/replicatedhq/dockerfilelint
 [editorconfig]: https://editorconfig.org/
 [gh]: https://github.com/cli/cli

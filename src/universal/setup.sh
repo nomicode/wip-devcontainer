@@ -11,6 +11,9 @@
 
 usermod --shell /bin/bash root
 
+sudo groupadd docker
+sudo usermod -aG docker root
+
 # Temporary hack to force the `root` user to pick up environment variables set
 # by the Dockerfile when the container is crated. Funnily enough, the
 # environment variables set in the Dockerfile are picked up during image
@@ -18,7 +21,7 @@ usermod --shell /bin/bash root
 #
 # TODO: Figure out why the `root` user does not pick up these environment
 # variables
-cat >> ~/.bashrc <<EOF
+cat >>~/.bashrc <<EOF
 
 set -a
 . /etc/environment >> ~/.bashrc
@@ -59,7 +62,7 @@ apk add --no-cache \
     util-linux \
     diffutils \
     moreutils \
-    bash-completion \
+    bash-completion
 
 # TODO: pandoc install fails for some reason
 # TODO: prettier install fails for some reason
@@ -152,7 +155,7 @@ WOKE_PKG="woke-0.17.1-linux-amd64"
 WOKE_TGZ="${WOKE_PKG}.tar.gz"
 WOKE_URL="https://git.io/JDvO1"
 echo "Downloading ${WOKE_TGZ}..."
-curl -fsSL "${WOKE_URL}" > "${WOKE_TGZ}"
+curl -fsSL "${WOKE_URL}" >"${WOKE_TGZ}"
 echo "Installing ${WOKE_PKG}..."
 tar -xzf "${WOKE_TGZ}"
 chmod 755 "${WOKE_PKG}/woke"
@@ -162,7 +165,7 @@ MISSPELL_PKG="misspell_0.3.4_linux_64bit"
 MISSPELL_TGZ="${MISSPELL_PKG}.tar.gz"
 MISSPELL_URL="https://git.io/JDvms"
 echo "Downloading ${MISSPELL_TGZ}..."
-curl -fsSL "${MISSPELL_URL}" > "${MISSPELL_TGZ}"
+curl -fsSL "${MISSPELL_URL}" >"${MISSPELL_TGZ}"
 echo "Installing ${MISSPELL_PKG}..."
 tar -xzf "${MISSPELL_TGZ}"
 chmod 755 misspell
@@ -177,7 +180,7 @@ LYCHEE_PKG="lychee-v0.8.1-x86_64-unknown-linux-musl"
 LYCHEE_TGZ="${LYCHEE_PKG}.tar.gz"
 LYCHEE_URL="https://git.io/JDvLb"
 echo "Downloading ${LYCHEE_TGZ}..."
-curl -fsSL "${LYCHEE_URL}" > "${LYCHEE_TGZ}"
+curl -fsSL "${LYCHEE_URL}" >"${LYCHEE_TGZ}"
 echo "Installing ${LYCHEE_PKG}..."
 tar -xzf "${LYCHEE_TGZ}"
 chmod 755 lychee
