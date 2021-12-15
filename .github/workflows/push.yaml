@@ -14,7 +14,7 @@ jobs:
         variant: [universal]
     env:
       SRC: src/${{ matrix.variant }}
-      NAMESPACE: norosa/devcontainers
+      NAMESPACE: nomiro/devcontainers
     steps:
       - uses: actions/checkout@v2
       - uses: docker/metadata-action@v3

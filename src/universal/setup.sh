@@ -82,18 +82,20 @@ apk add --no-cache \
     sqlite-dev \
     autoconf \
     automake \
+    python3 \
     python3-dev \
+    py3-pip
 
 # -----------------------------------------------------------------------------
 
-echo "Setting up pyenv..."
-curl -fsSL https://pyenv.run | bash
+# echo "Setting up pyenv..."
+# curl -fsSL https://pyenv.run | bash
 
-# Reserved for Python specific images
-# pyenv install 3.7.12
-# pyenv install 3.8.12
-pyenv install 3.9.9
-pyenv global 3.9.9
+# # Reserved for Python specific images
+# # pyenv install 3.7.12
+# # pyenv install 3.8.12
+# pyenv install 3.9.9
+# pyenv global 3.9.9
 
 (
     pip install --upgrade pip
