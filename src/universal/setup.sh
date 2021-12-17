@@ -100,6 +100,9 @@ apk add --no-cache \
 # pyenv install 3.9.9
 # pyenv global 3.9.9
 
+# Symlink `python` to `python3` because Alpine refuses to
+ln -s /usr/bin/python3 /usr/bin/python
+
 (
     pip install --upgrade pip
     pip install pipx
