@@ -28,7 +28,7 @@ set -a
 set +a
 EOF
 
-# I thought this would fix it, but it doesnt
+# I thought this would fix it, but it doesn't
 apk add --no-cache linux-pam
 
 # Or perhaps:
@@ -103,13 +103,13 @@ pyenv global 3.9.9
     pip install pipx
 ) 2>&1 | grep -v "WARNING: Running pip as the 'root' user"
 
-pipx install yamllint
-pipx install proselint
-pipx install snooty
-pipx install prospector[with_everything]
-pipx install reorder_python_imports
-pipx install csvkit
-pipx install poetry
+pipx install "yamllint"
+pipx install "proselint"
+pipx install "snooty"
+pipx install "prospector[with_everything]"
+pipx install "reorder_python_imports"
+pipx install "csvkit"
+pipx install "poetry"
 
 # TODO: `pipx completions`
 

@@ -1,12 +1,16 @@
 apk
 cli
 coreutils
+csvkit
 dedupe
 deps
+env
 ghc
 GOPATH
+gz
 libc
 mkdir
+moreutils
 ncdu
 nektos
 pipx
@@ -14,5 +18,8 @@ pksunkara
 pydoc
 pyenv
 snyk
+TGZ
 usr
 vscodeuniversal
+wtf
+xzf
