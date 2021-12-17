@@ -166,40 +166,43 @@ npm install --global --no-audit --prefer-dedupe \
 # Avoid installing Go and compiling from source, which pulls in a lot of
 # dependencies and takes a lot of time
 
-WOKE_PKG="woke-0.17.1-linux-amd64"
+WOKE_BIN="woke"
+WOKE_PKG="${WOKE_BIN}-0.17.1-linux-amd64"
 WOKE_TGZ="${WOKE_PKG}.tar.gz"
 WOKE_URL="https://git.io/JDvO1"
-echo "Downloading ${WOKE_TGZ}..."
+echo "Downloading ${WOKE_BIN}..."
 curl -fsSL "${WOKE_URL}" >"${WOKE_TGZ}"
-echo "Installing ${WOKE_PKG}..."
+echo "Installing ${WOKE_BIN}..."
 tar -xzf "${WOKE_TGZ}"
-chmod 755 "${WOKE_PKG}/woke"
-mv "${WOKE_PKG}/woke" /usr/local/bin
+chmod 755 "${WOKE_PKG}/${WOKE_BIN}"
+mv "${WOKE_PKG}/${WOKE_BIN}" /usr/local/bin
 
-MISSPELL_PKG="misspell_0.3.4_linux_64bit"
+MISSPELL_BIN="misspell"
+MISSPELL_PKG="${MISSPELL_BIN}_0.3.4_linux_64bit"
 MISSPELL_TGZ="${MISSPELL_PKG}.tar.gz"
 MISSPELL_URL="https://git.io/JDvms"
-echo "Downloading ${MISSPELL_TGZ}..."
+echo "Downloading ${MISSPELL_BIN}..."
 curl -fsSL "${MISSPELL_URL}" >"${MISSPELL_TGZ}"
-echo "Installing ${MISSPELL_PKG}..."
+echo "Installing ${MISSPELL_BIN}..."
 tar -xzf "${MISSPELL_TGZ}"
-chmod 755 misspell
-mv misspell /usr/local/bin
+chmod 755 "${MISSPELL_BIN}"
+mv "${MISSPELL_BIN}" /usr/local/bin
 
 # -----------------------------------------------------------------------------
 
 # Avoid installing Rust and compiling from source, which pulls in a lot of
 # dependencies and takes a lot of time
 
-LYCHEE_PKG="lychee-v0.8.1-x86_64-unknown-linux-musl"
+LYCHEE_BIN="lychee"
+LYCHEE_PKG="${LYCHEE_BIN}-v0.8.1-x86_64-unknown-linux-musl"
 LYCHEE_TGZ="${LYCHEE_PKG}.tar.gz"
 LYCHEE_URL="https://git.io/JDvLb"
-echo "Downloading ${LYCHEE_TGZ}..."
+echo "Downloading ${LYCHEE_BIN}..."
 curl -fsSL "${LYCHEE_URL}" >"${LYCHEE_TGZ}"
-echo "Installing ${LYCHEE_PKG}..."
+echo "Installing ${LYCHEE_BIN}..."
 tar -xzf "${LYCHEE_TGZ}"
-chmod 755 lychee
-mv lychee /usr/local/bin
+chmod 755 "${LYCHEE_BIN}"
+mv "${LYCHEE_BIN}" /usr/local/bin
 
 # TODO: Look into setting GitHub token to avoid getting rate limited
 # https://github.com/lycheeverse/lychee#github-token
