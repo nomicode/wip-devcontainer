@@ -136,7 +136,7 @@ npm install --global --no-audit npm@latest
 npm install --global --no-audit --prefer-dedupe \
     cspell \
     prettier \
-    lintspaces \
+    lintspaces-cli \
     dockerfilelint \
     markdownlint-cli \
     stylelint \
