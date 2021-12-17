@@ -120,6 +120,18 @@ pipx install poetry
 
 # -----------------------------------------------------------------------------
 
+WTF_BIN="wtf"
+WTF_URL="https://git.io/vqosc"
+echo "Downloading ${WTF_BIN}..."
+curl -fsSL "${WTF_URL}" >"${WTF_BIN}"
+echo "Installing ${WTF_BIN}..."
+chmod 755 "${WTF_BIN}"
+mv "${WTF_BIN}" /usr/local/bin
+
+# TODO: `complete -o default -o bashdefault wtf`
+
+# -----------------------------------------------------------------------------
+
 apk add --no-cache npm
 npm config set fund false --global
 # TODO: Adding `--no-audit` prevents these commands from printing information
