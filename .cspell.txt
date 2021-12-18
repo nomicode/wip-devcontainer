@@ -21,4 +21,5 @@ snyk
 TGZ
 usr
 vscodeuniversal
+wtf
 xzf
