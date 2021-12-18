@@ -134,6 +134,7 @@ npm config set fund false --global
 echo "Installing Node packages..."
 npm install --global --no-audit npm@latest
 npm install --global --no-audit --prefer-dedupe \
+    strip-ansi-cli \
     cspell \
     prettier \
     lintspaces-cli \
