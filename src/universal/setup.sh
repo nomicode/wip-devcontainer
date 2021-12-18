@@ -141,10 +141,7 @@ npm install --global --no-audit --prefer-dedupe \
     dockerfilelint \
     markdownlint-cli \
     markdown-link-check \
-    stylelint \
-    stylelint-config-standard \
-    jscpd \
-    snyk
+    jscpd
 
 # -----------------------------------------------------------------------------
 
