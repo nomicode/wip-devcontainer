@@ -140,6 +140,7 @@ npm install --global --no-audit --prefer-dedupe \
     lintspaces-cli \
     dockerfilelint \
     markdownlint-cli \
+    markdown-link-check \
     stylelint \
     stylelint-config-standard \
     jscpd \
