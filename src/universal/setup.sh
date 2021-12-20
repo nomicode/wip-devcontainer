@@ -105,7 +105,6 @@ pyenv global 3.9.9
 
 pipx install "yamllint"
 pipx install "proselint"
-pipx install "snooty"
 pipx install "prospector[with_everything]"
 pipx install "reorder_python_imports"
 pipx install "csvkit"
