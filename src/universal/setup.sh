@@ -83,6 +83,7 @@ apk add --no-cache \
     readline-dev \
     openssl-dev \
     sqlite-dev \
+    patch \
     autoconf \
     automake \
     python3-dev
@@ -92,11 +93,15 @@ apk add --no-cache \
 echo "Setting up pyenv..."
 curl -fsSL https://pyenv.run | bash
 
-# Reserved for Python specific images
-# pyenv install 3.7.12
-# pyenv install 3.8.12
+pyenv install 3.6.15
+pyenv install 3.7.12
+pyenv install 3.8.12
 pyenv install 3.9.9
-pyenv global 3.9.9
+pyenv install 3.10.1
+
+# Set this to match the default Python version that Alpine uses
+# https://pkgs.alpinelinux.org/package/edge/main/x86/python3
+pyenv global 3.10.1
 
 (
     pip install --upgrade pip
