@@ -72,6 +72,8 @@ apk add --no-cache \
 apk add --no-cache \
     gcc \
     g++ \
+    rust \
+    cargo \
     libc-dev \
     libxml2 \
     libxml2-dev \
@@ -85,18 +87,24 @@ apk add --no-cache \
     sqlite-dev \
     patch \
     autoconf \
-    automake \
-    python3-dev
+    automake
 
 # -----------------------------------------------------------------------------
 
 echo "Setting up pyenv..."
 curl -fsSL https://pyenv.run | bash
 
+# TODO These instructions can be parallelized
+
+pyenv install 3.6-dev
 pyenv install 3.6.15
+pyenv install 3.7-dev
 pyenv install 3.7.12
+pyenv install 3.8-dev
 pyenv install 3.8.12
+pyenv install 3.9-dev
 pyenv install 3.9.9
+pyenv install 3.10-dev
 pyenv install 3.10.1
 
 # Set this to match the default Python version that Alpine uses
