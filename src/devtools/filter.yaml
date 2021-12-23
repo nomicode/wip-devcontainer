@@ -1,0 +1,4 @@
+devtools-lint:
+  - src/devtools/Dockerfile
+  - src/devtools/lint/Dockerfile
+  - src/devtools/lint/**

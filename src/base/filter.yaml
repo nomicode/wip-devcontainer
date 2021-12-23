@@ -1,0 +1,16 @@
+base-go:
+  - src/base/Dockerfile
+  - src/base/go/Dockerfile
+  - src/base/go/**
+base-py:
+  - src/base/Dockerfile
+  - src/base/py/Dockerfile
+  - src/base/py/**
+base-pyenv:
+  - src/base/Dockerfile
+  - src/base/pyenv/Dockerfile
+  - src/base/pyenv/**
+base-rust:
+  - src/base/Dockerfile
+  - src/base/rust/Dockerfile
+  - src/base/rust/**

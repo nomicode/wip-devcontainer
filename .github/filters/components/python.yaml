@@ -1,0 +1,8 @@
+python-pipx:
+  - src/base/python/pipx/**
+  - src/base/python/Dockerfile
+  - src/base/Dockerfile
+python-wtf:
+  - src/base/python/wtf/Dockerfile
+  - src/base/python/Dockerfile
+  - src/base/Dockerfile

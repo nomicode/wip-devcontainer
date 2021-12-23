@@ -1,0 +1,20 @@
+pyenv-py3.6:
+  - src/base/pyenv/py3.6/Dockerfile
+  - src/base/pyenv/Dockerfile
+  - src/base/Dockerfile
+pyenv-py3.7:
+  - src/base/pyenv/py3.7/Dockerfile
+  - src/base/pyenv/Dockerfile
+  - src/base/Dockerfile
+pyenv-py3.8:
+  - src/base/pyenv/py3.8/Dockerfile
+  - src/base/pyenv/Dockerfile
+  - src/base/Dockerfile
+pyenv-py3.9:
+  - src/base/pyenv/py3.9/Dockerfile
+  - src/base/pyenv/Dockerfile
+  - src/base/Dockerfile
+pyenv-py3.10:
+  - src/base/pyenv/py3.10/Dockerfile
+  - src/base/pyenv/Dockerfile
+  - src/base/Dockerfile

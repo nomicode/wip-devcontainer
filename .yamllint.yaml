@@ -1,0 +1,9 @@
+yaml-files:
+  - '*.yaml'
+
+rules:
+  document-start: disable
+  truthy: disable
+  quoted-strings:
+    quote-type: single
+    required: only-when-needed

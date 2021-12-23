@@ -1,0 +1,6 @@
+base:
+  - src/base/Dockerfile
+  - src/base/**
+devtools:
+  - src/devtools/Dockerfile
+  - src/devtools/**

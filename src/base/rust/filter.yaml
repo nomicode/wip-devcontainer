@@ -1,0 +1,5 @@
+rust-lychee:
+  - src/base/Dockerfile
+  - src/base/rust/Dockerfile
+  - src/base/rust/lychee/Dockerfile
+  - src/base/rust/lychee/**
