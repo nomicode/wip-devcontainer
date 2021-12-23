@@ -1,0 +1,78 @@
+name: Build changes
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  base-devcontainer:
+    name: base
+    uses: nomiro/devcontainers/.github/workflows/build-matrix.yaml@main
+    with:
+      name: devcontainer
+      dir: src/base/devcontainer
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  base-sdk:
+    name: base
+    uses: nomiro/devcontainers/.github/workflows/build-matrix.yaml@main
+    with:
+      name: sdk
+      dir: src/base/sdk
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  sdk-go:
+    name: sdk
+    needs: base-sdk
+    uses: nomiro/devcontainers/.github/workflows/build-matrix.yaml@main
+    with:
+      name: go
+      dir: src/sdk/go
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  sdk-python3:
+    name: sdk
+    needs: base-sdk
+    uses: nomiro/devcontainers/.github/workflows/build-matrix.yaml@main
+    with:
+      name: python3
+      dir: src/sdk/python3
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  sdk-rust:
+    name: sdk
+    needs: base-sdk
+    uses: nomiro/devcontainers/.github/workflows/build-matrix.yaml@main
+    with:
+      name: rust
+      dir: src/sdk/rust
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  packages-go:
+    name: packages
+    needs: sdk-go
+    uses: nomiro/devcontainers/.github/workflows/build-matrix.yaml@main
+    with:
+      name: go
+      dir: src/packages/go
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  packages-python3:
+    name: packages
+    needs: sdk-python3
+    uses: nomiro/devcontainers/.github/workflows/build-matrix.yaml@main
+    with:
+      name: python3
+      dir: src/packages/python3
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  packages-rust:
+    name: packages
+    needs: sdk-rust
+    uses: nomiro/devcontainers/.github/workflows/build-matrix.yaml@main
+    with:
+      name: rust
+      dir: src/packages/rust
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}

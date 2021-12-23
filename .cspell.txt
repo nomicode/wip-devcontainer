@@ -13,10 +13,12 @@ mkdir
 moreutils
 ncdu
 nektos
+nomiro
 pipx
 pksunkara
 pydoc
 pyenv
+sed
 snyk
 TGZ
 usr

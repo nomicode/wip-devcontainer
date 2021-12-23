@@ -1,0 +1,28 @@
+csvkit:
+  - src/base/sdk/**
+  - src/sdk/python3/**
+  - src/packages/python3/**
+poetry:
+  - src/base/sdk/**
+  - src/sdk/python3/**
+  - src/packages/python3/**
+proselint:
+  - src/base/sdk/**
+  - src/sdk/python3/**
+  - src/packages/python3/**
+prospector:
+  - src/base/sdk/**
+  - src/sdk/python3/**
+  - src/packages/python3/**
+reorder_python_imports:
+  - src/base/sdk/**
+  - src/sdk/python3/**
+  - src/packages/python3/**
+wtf:
+  - src/base/sdk/**
+  - src/sdk/python3/**
+  - src/packages/python3/**
+yamllint:
+  - src/base/sdk/**
+  - src/sdk/python3/**
+  - src/packages/python3/**

@@ -1,0 +1,3 @@
+devcontainers@lint:
+  - src/devcontainers/lint/Dockerfile
+  - src/devcontainers/lint/**

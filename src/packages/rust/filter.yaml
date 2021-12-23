@@ -1,0 +1,4 @@
+lychee:
+  - src/base/sdk/**
+  - src/sdk/rust/**
+  - src/packages/rust/**
