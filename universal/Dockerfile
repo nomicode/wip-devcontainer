@@ -1,11 +1,7 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:alpine
 
-ENV PYENV_ROOT="/usr/local/pyenv"
-ENV PATH="${PYENV_ROOT}/bin:${PATH}"
-ENV PATH="${PYENV_ROOT}/shims:${PATH}"
-ENV PIPX_HOME="/usr/local/pipx"
-ENV PIPX_BIN_DIR="/usr/local/bin"
-ENV USE_EMOJI="false"
+# Last updated: 2021-12-23 21:33:28
+
 
 # TODO: The following two commands create two layers. Use a multistage build to
 # copy files on top of base alpine image as a single layer.

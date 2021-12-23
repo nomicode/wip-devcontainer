@@ -1,0 +1,4 @@
+cargo-lychee:
+  - src/base/cargo/lychee/Dockerfile
+  - src/base/cargo/Dockerfile
+  - src/base/Dockerfile

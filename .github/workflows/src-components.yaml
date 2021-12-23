@@ -1,0 +1,57 @@
+name: Components
+on:
+  workflow_call:
+    inputs:
+      workflows:
+        required: true
+        type: string
+    secrets:
+      DOCKERHUB_TOKEN:
+        required: true
+
+env:
+    MODULE: components
+    ACTION: ${{ inputs.filters }}/build-matrix.yaml@main
+
+defaults:
+  job-default: &job-defaults
+    uses: ${{ emv.ACTION }}
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  action-with: &action-with
+    images: ${{ emv.GITHUB_REPOSITORY }}/${{ emv.MODULE }}
+    context: src/${{ emv.MODULE }}
+
+jobs:
+  env:
+    FILTERS: .github/filters/${{ emv.MODULE }}
+  base:
+    with:
+      filters: ${{ emv.FILTERS }}/base.yaml
+      <<: *action-with
+    <<: *job-defaults
+  cargo:
+    needs: base
+    with:
+      filters: ${{ emv.FILTERS }}/cargo.yaml
+      <<: *action-with
+    <<: *job-defaults
+  go:
+    needs: base
+    with:
+      filters: ${{ emv.FILTERS }}go.yaml
+      <<: *action-with
+    <<: *job-defaults
+  pyenv:
+    needs: base
+    with:
+      filters: ${{ emv.FILTERS }}/pyenv.yaml
+    secrets:
+      <<: *action-with
+    <<: *job-defaults
+  python:
+    needs: base
+    with:
+      filters: ${{ emv.FILTERS }}/python.yaml
+      <<: *action-with
+    <<: *job-defaults
