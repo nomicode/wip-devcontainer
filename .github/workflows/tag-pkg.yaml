@@ -1,0 +1,74 @@
+name: Components
+on:
+  workflow_call:
+    inputs:
+      workflows:
+        required: true
+        type: string
+    secrets:
+      DOCKERHUB_TOKEN:
+        required: true
+
+env:
+    DIR: components
+    ACTION: ${{ inputs.filters }}/build-matrix.yaml@main
+
+jobs:
+  env:
+    SRC: .github/src/${{ emv.DIR }}
+  base:
+    env:
+      CONTEXT: ${{ env.SRC }}/${{ emv.GITHUB_JOB }}
+    - uses: ${{ emv.ACTION }}
+      secrets:
+        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      with:
+        filters: ${{ emv.CONTEXT }}/filters.yaml
+        images: ${{ emv.GITHUB_REPOSITORY }}/${{ emv.DIR }}
+        context: src/${{ emv.CONTEXT }}
+        tag: ${{ emv.GITHUB_JOB }}
+  base-cargo:
+    needs: base
+    env:
+      CONTEXT: ${{ env.SRC }}/${{ emv.GITHUB_JOB }}
+    - uses: ${{ emv.ACTION }}
+      secrets:
+        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      with:
+        filters: ${{ emv.CONTEXT }}/filters.yaml
+        images: ${{ emv.GITHUB_REPOSITORY }}/${{ emv.DIR }}
+        context: src/${{ emv.CONTEXT }}
+        tag: ${{ emv.GITHUB_JOB }}
+  base-go:
+    needs: base
+    - run: |
+        echo "SUBDIR=$(echo ${{ emv.GITHUB_JOB }} | sed 's,.*-,,')" \
+        >> $GITHUB_ENV
+    - uses: ${{ emv.ACTION }}
+      secrets:
+        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      with:
+        filters: ${{ env.SRC }}/${{ env.SUBDDIR }}filters.yaml
+        images: ${{ emv.GITHUB_REPOSITORY }}/${{ emv.DIR }}
+        context: ${{ env.SRC }}
+        tag: ${{ emv.GITHUB_JOB }}
+  base-pyenv:
+    needs: base
+    - uses: ${{ emv.ACTION }}
+      secrets:
+        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      with:
+        filters: ${{ env.SRC }}/${{ env.SUBDDIR }}filters.yaml
+        images: ${{ emv.GITHUB_REPOSITORY }}/${{ emv.DIR }}
+        context: ${{ env.SRC }}
+        tag: ${{ emv.GITHUB_JOB }}
+  base-python:
+    needs: base
+    - uses: ${{ emv.ACTION }}
+      secrets:
+        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      with:
+        filters: ${{ env.SRC }}/${{ env.SUBDDIR }}filters.yaml
+        images: ${{ emv.GITHUB_REPOSITORY }}/${{ emv.DIR }}
+        context: ${{ env.SRC }}
+        tag: ${{ emv.GITHUB_JOB }}

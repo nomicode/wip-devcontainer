@@ -6,12 +6,12 @@ on:
       - main
 
 env:
-    WORKFLOWS: nomiro/devcontainers/.github/workflows
+    WORKFLOWS: ${{ env.GITHUB_REPOSITORY}}/.github/workflows
 
 jobs:
-  components:
-    - uses: ./.github/workflows/src-components.yaml@${{ github.head_ref }}
+  pkg:
+    - uses: ./.github/workflows/tag-pkg.yaml@${{ github.head_ref }}
       with:
-        workflows: ${{ env.WORKFLOWS }}
+        workflows: ${{ env.WORKFLOWS}}
       secrets:
         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
