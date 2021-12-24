@@ -10,7 +10,7 @@ env:
 
 jobs:
   components:
-    uses: nomiro/devcontainers/.github/workflows/src-components.yaml@main
+    uses: ./.github/workflows/src-components.yaml@${{ github.head_ref }}
     with:
       workflows: ${{ env.WORKFLOWS }}
     secrets:
