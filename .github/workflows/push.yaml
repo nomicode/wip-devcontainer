@@ -10,8 +10,8 @@ env:
 
 jobs:
   components:
-    uses: ./.github/workflows/src-components.yaml@${{ github.head_ref }}
-    with:
-      workflows: ${{ env.WORKFLOWS }}
-    secrets:
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+    - uses: ./.github/workflows/src-components.yaml@${{ github.head_ref }}
+      with:
+        workflows: ${{ env.WORKFLOWS }}
+      secrets:
+        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
