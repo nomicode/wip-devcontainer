@@ -12,6 +12,6 @@ jobs:
   components:
     uses: nomiro/devcontainers/.github/workflows/src-components.yaml@main
     with:
-      workflows: ${{ emv.WORKFLOWS }}
+      workflows: ${{ env.WORKFLOWS }}
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
