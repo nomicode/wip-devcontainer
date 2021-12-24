@@ -8,4 +8,4 @@ RUN curl -fsSL "${WTF_URL}" >"${WTF_BIN}" && \
 
 # TODO: `complete -o default -o bashdefault wtf`
 
-# Timestamp: 1640385979
+# Timestamp: 1640386053

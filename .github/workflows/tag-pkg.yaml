@@ -15,60 +15,60 @@ env:
 
 jobs:
   env:
-    SRC: .github/src/${{ emv.DIR }}
+    SRC: .github/src/${{ env.DIR }}
   base:
     env:
-      CONTEXT: ${{ env.SRC }}/${{ emv.GITHUB_JOB }}
-    - uses: ${{ emv.ACTION }}
+      CONTEXT: ${{ env.SRC }}/${{ env.GITHUB_JOB }}
+    - uses: ${{ env.ACTION }}
       secrets:
         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
       with:
-        filters: ${{ emv.CONTEXT }}/filters.yaml
-        images: ${{ emv.GITHUB_REPOSITORY }}/${{ emv.DIR }}
-        context: src/${{ emv.CONTEXT }}
-        tag: ${{ emv.GITHUB_JOB }}
+        filters: ${{ env.CONTEXT }}/filters.yaml
+        images: ${{ env.GITHUB_REPOSITORY }}/${{ env.DIR }}
+        context: src/${{ env.CONTEXT }}
+        tag: ${{ env.GITHUB_JOB }}
   base-cargo:
     needs: base
     env:
-      CONTEXT: ${{ env.SRC }}/${{ emv.GITHUB_JOB }}
-    - uses: ${{ emv.ACTION }}
+      CONTEXT: ${{ env.SRC }}/${{ env.GITHUB_JOB }}
+    - uses: ${{ env.ACTION }}
       secrets:
         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
       with:
-        filters: ${{ emv.CONTEXT }}/filters.yaml
-        images: ${{ emv.GITHUB_REPOSITORY }}/${{ emv.DIR }}
-        context: src/${{ emv.CONTEXT }}
-        tag: ${{ emv.GITHUB_JOB }}
+        filters: ${{ env.CONTEXT }}/filters.yaml
+        images: ${{ env.GITHUB_REPOSITORY }}/${{ env.DIR }}
+        context: src/${{ env.CONTEXT }}
+        tag: ${{ env.GITHUB_JOB }}
   base-go:
     needs: base
     - run: |
-        echo "SUBDIR=$(echo ${{ emv.GITHUB_JOB }} | sed 's,.*-,,')" \
+        echo "SUBDIR=$(echo ${{ env.GITHUB_JOB }} | sed 's,.*-,,')" \
         >> $GITHUB_ENV
-    - uses: ${{ emv.ACTION }}
+    - uses: ${{ env.ACTION }}
       secrets:
         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
       with:
         filters: ${{ env.SRC }}/${{ env.SUBDDIR }}filters.yaml
-        images: ${{ emv.GITHUB_REPOSITORY }}/${{ emv.DIR }}
+        images: ${{ env.GITHUB_REPOSITORY }}/${{ env.DIR }}
         context: ${{ env.SRC }}
-        tag: ${{ emv.GITHUB_JOB }}
+        tag: ${{ env.GITHUB_JOB }}
   base-pyenv:
     needs: base
-    - uses: ${{ emv.ACTION }}
+    - uses: ${{ env.ACTION }}
       secrets:
         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
       with:
         filters: ${{ env.SRC }}/${{ env.SUBDDIR }}filters.yaml
-        images: ${{ emv.GITHUB_REPOSITORY }}/${{ emv.DIR }}
+        images: ${{ env.GITHUB_REPOSITORY }}/${{ env.DIR }}
         context: ${{ env.SRC }}
-        tag: ${{ emv.GITHUB_JOB }}
+        tag: ${{ env.GITHUB_JOB }}
   base-python:
     needs: base
-    - uses: ${{ emv.ACTION }}
+    - uses: ${{ env.ACTION }}
       secrets:
         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
       with:
         filters: ${{ env.SRC }}/${{ env.SUBDDIR }}filters.yaml
-        images: ${{ emv.GITHUB_REPOSITORY }}/${{ emv.DIR }}
+        images: ${{ env.GITHUB_REPOSITORY }}/${{ env.DIR }}
         context: ${{ env.SRC }}
-        tag: ${{ emv.GITHUB_JOB }}
+        tag: ${{ env.GITHUB_JOB }}
