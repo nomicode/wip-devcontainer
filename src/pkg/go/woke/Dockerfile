@@ -12,4 +12,4 @@ RUN curl -fsSL "${WOKE_URL}" >"${WOKE_TGZ}" && \
     chmod 755 "${WOKE_PKG}/${WOKE_BIN}" && \
     mv "${WOKE_PKG}/${WOKE_BIN}" /usr/local/bin
 
-# Timestamp: 1640386053
+# Timestamp: 1640386289

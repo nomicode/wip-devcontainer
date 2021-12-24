@@ -2,4 +2,4 @@ FROM nomiro/devcontainers:pipx
 
 RUN pipx install --verbose "proselint"
 
-# Timestamp: 1640386053
+# Timestamp: 1640386289
