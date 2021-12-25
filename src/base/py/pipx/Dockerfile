@@ -7,4 +7,4 @@ RUN pip install pipx
 
 # TODO: `pipx completions`
 
-# Timestamp: 1640403895
+# Timestamp: 1640405330

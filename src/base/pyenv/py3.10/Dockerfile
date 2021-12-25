@@ -1,6 +1,8 @@
 FROM nomiro/devcontainers:base-pyenv
 
-# We only need to enable this for the latest Python version
+# We only need this environment variable for this image because we always use
+# the latest version of Python to bundle Python programs into standalone
+# executables
 ENV PYTHON_CONFIGURE_OPTS="--enable-shared"
 ENV PY_MINOR=3.10
 # Install the latest patch version
@@ -12,4 +14,4 @@ RUN PY_VERSION="$(\
     pyenv install ${PY_VERSION} && \
     pyenv global ${PY_VERSION}
 
-# Timestamp: 1640403895
+# Timestamp: 1640405331
