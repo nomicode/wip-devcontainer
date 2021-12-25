@@ -10,7 +10,7 @@ env:
 
 jobs:
   pkg:
-    uses: ./.github/workflows/tag-pkg.yaml@${{ github.GITHUB_SHA }}
+    uses: ./.github/workflows/tag-pkg.yaml@HEAD
     with:
       dir: src/pkg
     secrets:
