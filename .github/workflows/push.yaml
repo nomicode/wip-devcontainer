@@ -10,7 +10,7 @@ env:
 
 jobs:
   pkg:
-    uses: ${{ env.WORKFLOWS }}/tag-pkg.yaml@latest
+    uses: ${{ env.WORKFLOWS }}/action-build.yaml@latest
     with:
       dir: src/pkg
     secrets:
