@@ -10,7 +10,7 @@ env:
 
 jobs:
   pkg:
-    uses: ./.github/workflows/tag-pkg.yaml@HEAD
+    uses: $WORKFLOWS/tag-pkg.yaml@latest
     with:
       dir: src/pkg
     secrets:
