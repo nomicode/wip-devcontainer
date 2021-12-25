@@ -5,12 +5,10 @@ on:
     branches:
       - main
 
-env:
-  WORKFLOWS: ${{ env.GITHUB_REPOSITORY}}/.github/workflows
-
 jobs:
   pkg:
-    uses: ${{ env.WORKFLOWS }}/action-build.yaml@latest
+    uses:
+      ${{ env.GITHUB_REPOSITORY}}/.github/workflows/action-build.yaml@latest
     with:
       dir: src/pkg
     secrets:
