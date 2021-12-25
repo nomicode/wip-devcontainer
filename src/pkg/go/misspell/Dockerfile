@@ -12,4 +12,4 @@ RUN curl -fsSL "${MISSPELL_URL}" >"${MISSPELL_TGZ}" && \
     chmod 755 "${MISSPELL_BIN}" && \
     mv "${MISSPELL_BIN}" /usr/local/bin
 
-# Timestamp: 1640386289
+# Timestamp: 1640390420

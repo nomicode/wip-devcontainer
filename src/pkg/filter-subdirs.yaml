@@ -1,0 +1,16 @@
+cargo:
+  - src/pkg/Dockerfile
+  - src/pkg/cargo/Dockerfile
+  - src/pkg/cargo/**
+pyenv:
+  - src/pkg/Dockerfile
+  - src/pkg/pyenv/Dockerfile
+  - src/pkg/pyenv/**
+go:
+  - src/pkg/Dockerfile
+  - src/pkg/go/Dockerfile
+  - src/pkg/go/**
+python:
+  - src/pkg/Dockerfile
+  - src/pkg/python/Dockerfile
+  - src/pkg/python/**

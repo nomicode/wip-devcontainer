@@ -1,5 +1,7 @@
 FROM nomiro/devcontainers:pipx
 
+ENV GOPATH=/usr/local/go
+ENV GOBIN=/usr/local/bin
 RUN apk --no-cache add go
 
-# Timestamp: 1640386289
+# Timestamp: 1640390420

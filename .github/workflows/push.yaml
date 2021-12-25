@@ -6,12 +6,12 @@ on:
       - main
 
 env:
-    WORKFLOWS: ${{ env.GITHUB_REPOSITORY}}/.github/workflows
+  WORKFLOWS: ${{ env.GITHUB_REPOSITORY}}/.github/workflows
 
 jobs:
   pkg:
-    - uses: ./.github/workflows/tag-pkg.yaml@${{ github.head_ref }}
-      with:
-        workflows: ${{ env.WORKFLOWS}}
-      secrets:
-        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+    uses: ./.github/workflows/tag-pkg.yaml@${{ github.head_ref }}
+    with:
+      dir: src/pkg
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}

@@ -110,3 +110,7 @@ npm install --global --no-audit --prefer-dedupe \
 rm -rf /root/.cache
 rm -rf /root/.config
 rm -rf /root/.npm
+
+
+# TODO: npm install github-actions-linter
+# TODO: go install github.com/rhysd/actionlint/cmd/actionlint@latest

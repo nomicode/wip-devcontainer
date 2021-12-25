@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "github-actions-linter": "^2.7.0"
+  }
+}
