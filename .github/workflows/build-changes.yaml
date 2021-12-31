@@ -79,6 +79,7 @@ jobs:
   devcontainers:
     name: devcontainers
     needs:
+      - base-devcontainer
       - packages-go
       - packages-python3
       - packages-rust
