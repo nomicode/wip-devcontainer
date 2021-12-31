@@ -13,4 +13,4 @@ tar -xzf "${WOKE_TGZ}"
 chmod 755 "${WOKE_PKG}/${WOKE_BIN}"
 mv "${WOKE_PKG}/${WOKE_BIN}" /tmp/dist
 
-# Stamp: 1640947118
+# Stamp: 1640961879

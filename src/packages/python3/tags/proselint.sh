@@ -17,4 +17,4 @@ pipenv run pyscripts "${PACKAGE}" |
             pyinstaller --onefile --strip --path "${venv}" "${file}"
     done
 
-# Stamp: 1640947118
+# Stamp: 1640961879

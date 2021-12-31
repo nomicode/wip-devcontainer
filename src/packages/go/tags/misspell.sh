@@ -13,4 +13,4 @@ tar -xzf "${MISSPELL_TGZ}"
 chmod 755 "${MISSPELL_BIN}"
 mv "${MISSPELL_BIN}" /tmp/dist
 
-# Stamp: 1640947118
+# Stamp: 1640961879
