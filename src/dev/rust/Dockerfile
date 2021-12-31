@@ -1,5 +1,4 @@
-FROM nomiro/devcontainers:build
+FROM nomiro/alpine-base:dev
 
-RUN apk add --no-cache cargo
-
-# Timestamp: 1640929993
+COPY build.sh /tmp/build.sh
+RUN /tmp/build.sh

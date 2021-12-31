@@ -1,7 +1,6 @@
-FROM nomiro/devcontainers:build
+FROM nomiro/alpine-base:dev
 
 ENV GOPATH=/usr/local/go
 ENV GOBIN=/usr/local/bin
-RUN apk --no-cache add go
-
-# Timestamp: 1640929993
+COPY build.sh /tmp/build.sh
+RUN /tmp/build.sh
