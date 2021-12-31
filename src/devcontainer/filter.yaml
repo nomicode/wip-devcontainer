@@ -1,3 +1,0 @@
-devcontainer-lint:
-  - src/devcontainer/lint/Dockerfile
-  - src/devcontainer/lint/**

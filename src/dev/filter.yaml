@@ -1,9 +1,9 @@
-dev-go:
+dev@go:
   - src/base/package
-  - src/package/go/**
-dev-pyenv:
+  - src/dev/go/**
+dev@pyenv:
   - src/base/package
-  - src/package/pyenv/**
-dev-rust:
+  - src/dev/pyenv/**
+dev@rust:
   - src/base/package
-  - src/package/rust/**
+  - src/dev/rust/**

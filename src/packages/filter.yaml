@@ -1,0 +1,55 @@
+# dev/rust
+packages@lychee:
+  - src/dev/rust/**
+  - src/packages/lychee/**
+
+# dev/go
+packages@misspell:
+  - src/dev/go/**
+  - src/packages/misspell/**
+packages@woke:
+  - src/dev/go/**
+  - src/packages/woke/**
+
+# dev/pyenv
+packages@python3.6:
+  - src/dev/pyenv/**
+  - src/packages/python/**
+packages@python3.7:
+  - src/dev/pyenv/**
+  - src/packages/python/**
+packages@python3.8:
+  - src/dev/pyenv/**
+  - src/packages/python/**
+packages@python3.9:
+  - src/dev/pyenv/**
+  - src/packages/python/**
+packages@python3.10:
+  - src/dev/pyenv/**
+  - src/packages/python/**
+
+# package/python
+packages@csvkit:
+  - src/packages/python/**
+  - src/packages/csvkit/**
+packages@pipx:
+  - src/packages/python/**
+  - src/packages/pipx/**
+packages@poetry:
+  - src/packages/python/**
+  - src/packages/poetry/**
+packages@proselint:
+  - src/packages/python/**
+  - src/packages/proselint/**
+packages@prospector:
+  - src/packages/python/**
+  - src/packages/prospector/**
+packages@reorder_python_imports:
+  - src/packages/python/**
+  - src/packages/reorder_python_imports/**
+packages@wtf:
+  - src/packages/python/**
+  - src/packages/wtf/**
+packages@yamllint:
+  - src/packages/python/**
+  - src/packages/yamllint/**
