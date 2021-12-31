@@ -14,6 +14,4 @@ yamllint="$(pipenv run which yamllint)"
 pipenv run \
     pyinstaller --onefile --strip --path "${venv}" "${yamllint}"
 
-/tmp/dist/yamllint --help
-
 # Stamp: 1640947118
