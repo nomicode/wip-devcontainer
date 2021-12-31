@@ -4,6 +4,7 @@ ENV PYENV_ROOT="/usr/local/pyenv"
 ENV PATH="${PYENV_ROOT}/bin:${PYENV_ROOT}/shims:${PATH}"
 
 ARG TAG
-WORKDIR /tmp
-COPY tags/${TAG} .
-RUN ${TAG}/setup.sh
+COPY tags/${TAG}.sh /tmp/${TAG}.sh
+RUN /tmp/${TAG}.sh
+
+COPY bin/pyscripts.py /usr/local/bin/pyscripts
