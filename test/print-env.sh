@@ -15,9 +15,11 @@ has_unset_var() {
 }
 
 test_key() {
-    key="${1}"
+    repository="${1}"
+    key="${2}"
     tmpfile="$(mktemp)"
-    .github/utils/print-env.sh "${key}" | sed 's/^/  /' >"${tmpfile}"
+    .github/utils/print-env.sh "${repository}" "${key}" |
+        sed 's/^/  /' >"${tmpfile}"
     if has_unset_var; then
         printf "\e[31;1m%s\e[0;0m\n" "${key}"
     else
@@ -38,5 +40,5 @@ print_seperator() {
 looped=""
 print_keys | while read -r key; do
     print_seperator
-    test_key "${key}"
+    test_key "owner/project" "${key}"
 done

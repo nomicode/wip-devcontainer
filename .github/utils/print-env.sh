@@ -1,9 +1,9 @@
 #!/bin/sh -e
 
 repository="${1}"
-key="${3}"
+key="${2}"
 
-if test -z "${key}"; then
+if test -z "${repository}" -o -z "${key}"; then
     exit 1
 fi
 
@@ -15,12 +15,12 @@ dir() {
     echo "${key}" | sed 's,@,/,'
 }
 
-image() {
-    echo "${key}" | cut -d/ -f1
+component() {
+    echo "${key}" | cut -d@ -f1
 }
 
 tag() {
-    echo "${key}" | cut -d/ -f2
+    echo "${key}" | cut -d@ -f2
 }
 
 context() {
@@ -30,7 +30,7 @@ context() {
 }
 
 cat <<EOF
-IMAGE=alpine-$(image)
+IMAGE=$(project)-$(component)
 TAG=$(tag)
 CONTEXT=$(context)
 EOF
