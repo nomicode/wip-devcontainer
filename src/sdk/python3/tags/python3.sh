@@ -30,6 +30,4 @@ pyenv install "${PY_MINOR}-dev"
 pyenv install "${PY_VERSION}"
 pyenv global "${PY_VERSION}"
 
-pip3 install --verbose pyinstaller
-
 # Stamp: 1640947118
