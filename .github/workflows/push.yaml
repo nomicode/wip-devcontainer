@@ -12,15 +12,15 @@ jobs:
       dir: src/base
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  dev:
+  sdk:
     needs: base
     uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
     with:
-      dir: src/dev
+      dir: src/sdk
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
   packages:
-    needs: dev
+    needs: sdk
     uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
     with:
       dir: src/packages

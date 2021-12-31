@@ -9,4 +9,4 @@ mv "${WTF_BIN}" /usr/local/bin
 
 # TODO: `complete -o default -o bashdefault wtf`
 
-# Stamp: 1640938148
+# Stamp: 1640939217

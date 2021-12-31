@@ -1,0 +1,9 @@
+sdk@go:
+  - src/base/sdk/**
+  - src/sdk/go/**
+sdk@pyenv:
+  - src/base/sdk/**
+  - src/sdk/pyenv/**
+sdk@rust:
+  - src/base/sdk/**
+  - src/sdk/rust/**

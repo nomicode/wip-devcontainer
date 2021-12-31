@@ -1,4 +1,4 @@
-base@dev:
-  - src/base/dev/**
+base@sdk:
+  - src/base/sdk/**
 base@devcontainer:
   - src/base/devcontainer/**

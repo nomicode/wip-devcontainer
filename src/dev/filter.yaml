@@ -1,9 +1,0 @@
-dev@go:
-  - src/base/package
-  - src/dev/go/**
-dev@pyenv:
-  - src/base/package
-  - src/dev/pyenv/**
-dev@rust:
-  - src/base/package
-  - src/dev/rust/**

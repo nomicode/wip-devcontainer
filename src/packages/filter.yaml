@@ -1,17 +1,17 @@
 # dev/rust
 packages@lychee:
-  - src/dev/rust/**
+  - src/sdk/rust/**
   - src/packages/lychee/**
 
 # dev/go
 packages@misspell:
-  - src/dev/go/**
+  - src/sdk/go/**
   - src/packages/misspell/**
 packages@woke:
-  - src/dev/go/**
+  - src/sdk/go/**
   - src/packages/woke/**
 
 # dev/pyenv
 packages@python3:
-  - src/dev/pyenv/**
+  - src/sdk/pyenv/**
   - src/packages/python3/**

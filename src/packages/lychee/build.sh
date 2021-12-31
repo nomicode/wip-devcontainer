@@ -16,4 +16,4 @@ mv "${LYCHEE_BIN}" /usr/local/bin
 # TODO: Look into setting GitHub token to avoid getting rate limited
 # https://github.com/lycheeverse/lychee#github-token
 
-# Stamp: 1640936315
+# Stamp: 1640939217

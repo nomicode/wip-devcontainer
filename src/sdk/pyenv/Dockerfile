@@ -1,4 +1,4 @@
-FROM nomiro/alpenglow-base:dev
+FROM nomiro/alpenglow-base:sdk
 
 ENV PYENV_ROOT="/usr/local/pyenv"
 ENV PATH="${PYENV_ROOT}/bin:${PYENV_ROOT}/shims:${PATH}"
