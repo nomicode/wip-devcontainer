@@ -6,43 +6,16 @@ on:
       - main
 
 jobs:
-  # base
-  base-dev:
-    name: base/dev
+  base:
     uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
     with:
-      dir: src/base/dev
+      dir: src/base
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  base-devcontainer:
-    name: base/devcontainer
+  dev:
+    needs: base
     uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
     with:
-      dir: src/base/devcontainer
-    secrets:
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  # dev
-  dev-go:
-    name: dev/go
-    needs: base-dev
-    uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
-    with:
-      dir: src/dev/go
-    secrets:
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  dev-pyenv:
-    name: dev/pyenv
-    needs: base-dev
-    uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
-    with:
-      dir: src/dev/pyenv
-    secrets:
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  dev-rust:
-    name: dev/rust
-    needs: base-dev
-    uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
-    with:
-      dir: src/dev/rust
+      dir: src/dev
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
