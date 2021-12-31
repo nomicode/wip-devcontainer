@@ -12,11 +12,10 @@ on:
         required: true
 
 jobs:
-
   list:
     runs-on: ubuntu-latest
     outputs:
-      tags: ${{ steps.filter.outputs.changes }}
+      keys: ${{ steps.filter.outputs.changes }}
     steps:
       - uses: actions/checkout@v2
       - uses: dorny/paths-filter@v2
@@ -26,27 +25,22 @@ jobs:
           filters: ${{ inputs.dir }}/filter.yaml
 
   build:
-    name: build / ${{ matrix.tag }}
+    name: build / ${{ matrix.key }}
     needs: list
-    if: ${{ needs.list.outputs.tags != '[]' }}
+    if: ${{ needs.list.outputs.keys != '[]' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        tag: ${{ fromJSON(needs.list.outputs.tags) }}
+        key: ${{ fromJSON(needs.list.outputs.tagkeyss) }}
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          echo "CONTEXT=$(echo ${{ matrix.tag }} | sed 's,-,/,g' |
-            while read -r path; do
-              find src -type d -path "*${path}"
-            done
-          )" >> $GITHUB_ENV
+      - run: ./.github/utils/print-env.sh "${{ matrix.key }}" >>$GITHUB_ENV
       - uses: docker/metadata-action@v3
         id: meta
         with:
-          images: ${{ github.repository }}
-          tags: type=raw,value=${{ matrix.tag }}
+          images: ${{ github.repository }}/${{ env.IMAGE }}
+          tags: type=raw,value=${{ env.TAG }}
           github-token: ${{ github.token }}
       - uses: docker/login-action@v1
         if: github.event_name != 'pull_request'
@@ -57,6 +51,7 @@ jobs:
         id: build
         with:
           context: ${{ env.CONTEXT }}
-          push: ${{ github.event_name != 'pull_request' }}
+          build-args: TAG=${{ env.TAG }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          push: ${{ github.event_name != 'pull_request' }}

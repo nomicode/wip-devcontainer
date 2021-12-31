@@ -17,6 +17,7 @@ pipx
 pksunkara
 pydoc
 pyenv
+sed
 snyk
 TGZ
 usr

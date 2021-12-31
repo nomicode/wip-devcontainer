@@ -6,50 +6,43 @@ on:
       - main
 
 jobs:
-  src:
-    name: src
+  # base
+  base-dev:
+    name: base/dev
     uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
     with:
-      dir: src
+      dir: src/base/dev
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  src-base:
-    name: src
-    needs: src
+  base-devcontainer:
+    name: base/devcontainer
     uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
     with:
-      dir: src/base
+      dir: src/base/devcontainer
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  src-base-py:
-    name: src
-    needs: src-base
+  # dev
+  dev-go:
+    name: dev/go
+    needs: base-dev
     uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
     with:
-      dir: src/base/py
+      dir: src/dev/go
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  src-base-py-pipx:
-    name: src
-    needs: src-base-py
+  dev-pyenv:
+    name: dev/pyenv
+    needs: base-dev
     uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
     with:
-      dir: src/base/py/pipx
+      dir: src/dev/pyenv
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  src-base-pyenv:
-    name: src
-    needs: src-base-py-pipx
+  dev-rust:
+    name: dev/rust
+    needs: base-dev
     uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
     with:
-      dir: src/base/pyenv
-    secrets:
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  src-base-rust:
-    name: src
-    needs: src-base
-    uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
-    with:
-      dir: src/base/rust
+      dir: src/dev/rust
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
