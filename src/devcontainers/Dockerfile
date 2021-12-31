@@ -25,5 +25,6 @@ COPY --from=reorder_python_imports /usr/local/bin /usr/local/bin
 COPY --from=woke /usr/local/bin /usr/local/bin
 COPY --from=wtf /usr/local/bin /usr/local/bin
 COPY --from=yamllint /usr/local/bin /usr/local/bin
+RUN ls -lh /usr/local/bin
 
 # Timestamp: 1640929993
