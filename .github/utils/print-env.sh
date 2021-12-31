@@ -6,16 +6,20 @@ if test -z "${key}"; then
     exit 1
 fi
 
+dir() {
+    echo "${key}" | sed 's,@,/,'
+}
+
 image() {
-    echo "${key}" | sed 's,@.*,,' | sed 's,-,/,g'
+    echo "${key}" | sed -E 's,@.*,,'
 }
 
 tag() {
-    echo "${key}" | sed -E 's,[^@]+@?,,' | sed -E 's,^$,latest,'
+    echo "${key}" | sed -E 's,.*@,,'
 }
 
 context() {
-    image | while read -r path; do
+    dir | while read -r path; do
         find src -type d -path "*${path}"
     done
 }
@@ -23,5 +27,5 @@ context() {
 cat <<EOF
 IMAGE=alpine-$(image)
 TAG=$(tag)
-CONTEXT=$(context)/$(tag)
+CONTEXT=$(context)
 EOF
