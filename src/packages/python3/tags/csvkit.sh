@@ -8,7 +8,7 @@ pipenv install \
 
 # venv="$(pipenv --venv)"
 
-pipenv run pyscripts yamllint
+pipenv run pyscripts csvkit
 
 # pipenv run \
 #    pyinstaller --onefile --strip --path "${venv}" "${yamllint}"
