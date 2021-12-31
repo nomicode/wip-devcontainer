@@ -1,9 +1,6 @@
-ARG PY_MINOR
 FROM nomiro/devcontainers:build-pyenv
 
-# We only need this environment variable for this image because we always use
-# the latest version of Python to bundle Python programs into standalone
-# executables
+ENV PY_MINOR=3.10
 ENV PYTHON_CONFIGURE_OPTS="--enable-shared"
 # Install the latest patch version
 RUN PY_VERSION="$(\
