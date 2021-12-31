@@ -11,6 +11,6 @@ MISSPELL_URL="https://git.io/JDvms"
 curl -fsSL "${MISSPELL_URL}" >"${MISSPELL_TGZ}"
 tar -xzf "${MISSPELL_TGZ}"
 chmod 755 "${MISSPELL_BIN}"
-mv "${MISSPELL_BIN}" /usr/local/bin
+mv "${MISSPELL_BIN}" /tmp/dist
 
 # Stamp: 1640947118

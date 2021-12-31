@@ -11,7 +11,7 @@ LYCHEE_URL="https://git.io/JDvLb"
 curl -fsSL "${LYCHEE_URL}" >"${LYCHEE_TGZ}"
 tar -xzf "${LYCHEE_TGZ}"
 chmod 755 "${LYCHEE_BIN}"
-mv "${LYCHEE_BIN}" /usr/local/bin
+mv "${LYCHEE_BIN}" /tmp/dist
 
 # TODO: Look into setting GitHub token to avoid getting rate limited
 # https://github.com/lycheeverse/lychee#github-token
