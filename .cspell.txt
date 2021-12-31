@@ -25,3 +25,4 @@ usr
 vscodeuniversal
 wtf
 xzf
+pyinstaller
