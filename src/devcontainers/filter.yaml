@@ -1,0 +1,3 @@
+universal:
+  - src/base/devcontainer/**
+  - src/devcontainers/**
