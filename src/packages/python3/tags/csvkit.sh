@@ -6,15 +6,16 @@ pipenv install \
     pyinstaller \
     csvkit
 
-# venv="$(pipenv --venv)"
+venv="$(pipenv --venv)"
 
-pipenv run pyscripts csvkit
-
-# pipenv run \
-#    pyinstaller --onefile --strip --path "${venv}" "${yamllint}"
+pipenv run pyscripts csvkit | while read -r script; do
+    file="$(pipenv run which "${script}")"
+    pipenv run \
+        pyinstaller --onefile --strip --path "${venv}" "${file}"
+done
 
 # pip3 install --verbose csvkit
 
-pyscripts csvkit
+# pyscripts csvkit
 
 # Stamp: 1640947118
