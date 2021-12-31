@@ -23,7 +23,6 @@ jobs:
         with:
           list-files: shell
           filters: ${{ inputs.dir }}/filter.yaml
-
   build:
     name: build / ${{ matrix.key }}
     needs: list
