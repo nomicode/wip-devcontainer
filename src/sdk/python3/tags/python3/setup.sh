@@ -3,6 +3,8 @@
 # https://github.com/pyenv/pyenv/wiki/Common-build-problems
 # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
 
+cd "$(dirname "${0}")"
+
 apk add --no-cache \
     linux-headers \
     libffi-dev \
@@ -29,5 +31,7 @@ export PYTHON_CONFIGURE_OPTS
 pyenv install "${PY_MINOR}-dev"
 pyenv install "${PY_VERSION}"
 pyenv global "${PY_VERSION}"
+
+mv pyscripts.py /usr/local/bin/pyscripts
 
 # Stamp: 1640947118

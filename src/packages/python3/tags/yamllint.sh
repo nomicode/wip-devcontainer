@@ -1,7 +1,5 @@
 #!/bin/sh -e
 
-cd /tmp
-
 pip3 install --verbose pipenv
 
 pipenv install \

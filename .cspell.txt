@@ -20,6 +20,7 @@ pksunkara
 pydoc
 pyenv
 pyinstaller
+pyscripts
 sed
 snyk
 TGZ
