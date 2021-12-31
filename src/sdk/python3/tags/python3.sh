@@ -32,4 +32,6 @@ pyenv install "${PY_MINOR}-dev"
 pyenv install "${PY_VERSION}"
 pyenv global "${PY_VERSION}"
 
+pip3 install --upgrade pip
+
 # Stamp: 1640947118
