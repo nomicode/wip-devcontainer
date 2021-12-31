@@ -12,44 +12,32 @@ packages@woke:
   - src/packages/woke/**
 
 # dev/pyenv
-packages@python3.6:
+packages@python3:
   - src/dev/pyenv/**
-  - src/packages/python/**
-packages@python3.7:
-  - src/dev/pyenv/**
-  - src/packages/python/**
-packages@python3.8:
-  - src/dev/pyenv/**
-  - src/packages/python/**
-packages@python3.9:
-  - src/dev/pyenv/**
-  - src/packages/python/**
-packages@python3.10:
-  - src/dev/pyenv/**
-  - src/packages/python/**
+  - src/packages/python3/**
 
 # package/python
 packages@csvkit:
-  - src/packages/python/**
+  - src/packages/python3/**
   - src/packages/csvkit/**
 packages@pipx:
-  - src/packages/python/**
+  - src/packages/python3/**
   - src/packages/pipx/**
 packages@poetry:
-  - src/packages/python/**
+  - src/packages/python3/**
   - src/packages/poetry/**
 packages@proselint:
-  - src/packages/python/**
+  - src/packages/python3/**
   - src/packages/proselint/**
 packages@prospector:
-  - src/packages/python/**
+  - src/packages/python3/**
   - src/packages/prospector/**
 packages@reorder_python_imports:
-  - src/packages/python/**
+  - src/packages/python3/**
   - src/packages/reorder_python_imports/**
 packages@wtf:
-  - src/packages/python/**
+  - src/packages/python3/**
   - src/packages/wtf/**
 packages@yamllint:
-  - src/packages/python/**
+  - src/packages/python3/**
   - src/packages/yamllint/**
