@@ -1,8 +1,4 @@
-FROM nomiro/devcontainers:py-pipx
+FROM nomiro/alpenglow-packages:python3
 
-RUN apk add --no-cache \
-      g++ \
-      libffi-dev && \
-    pipx install --verbose "poetry"
-
-# Timestamp: 1640929993
+COPY build.sh /tmp/build.sh
+RUN /tmp/build.sh

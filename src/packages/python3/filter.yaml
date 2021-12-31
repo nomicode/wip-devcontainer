@@ -1,0 +1,25 @@
+# package/python3
+packages@csvkit:
+  - src/packages/python3/**
+  - src/packages/python3/csvkit/**
+packages@pipx:
+  - src/packages/python3/**
+  - src/packages/python3/pipx/**
+packages@poetry:
+  - src/packages/python3/**
+  - src/packages/python3/poetry/**
+packages@proselint:
+  - src/packages/python3/**
+  - src/packages/python3/proselint/**
+packages@prospector:
+  - src/packages/python3/**
+  - src/packages/python3/prospector/**
+packages@reorder_python_imports:
+  - src/packages/python3/**
+  - src/packages/python3/reorder_python_imports/**
+packages@wtf:
+  - src/packages/python3/**
+  - src/packages/python3/wtf/**
+packages@yamllint:
+  - src/packages/python3/**
+  - src/packages/python3/yamllint/**

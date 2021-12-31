@@ -1,5 +1,4 @@
-FROM nomiro/devcontainers:py-pipx
+FROM nomiro/alpenglow-packages:python3
 
-RUN pipx install --verbose "reorder_python_imports"
-
-# Timestamp: 1640929993
+COPY build.sh /tmp/build.sh
+RUN /tmp/build.sh

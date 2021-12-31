@@ -26,3 +26,11 @@ jobs:
       dir: src/packages
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  packages-python3:
+    name: packages
+    needs: packages
+    uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
+    with:
+      dir: src/packages/python3
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
