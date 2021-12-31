@@ -10,8 +10,9 @@ apk add --no-cache \
     bzip2-dev \
     zlib-dev \
     readline-dev \
-    sqlite-dev
+    sqlite-dev \
+    bash
 
 curl -fsSL https://pyenv.run | bash
 
-# Stamp: 1640933730
+# Stamp: 1640934143

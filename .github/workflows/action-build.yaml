@@ -34,7 +34,9 @@ jobs:
         key: ${{ fromJSON(needs.list.outputs.keys) }}
     steps:
       - uses: actions/checkout@v2
-      - run: ./.github/utils/print-env.sh "${{ matrix.key }}" >>$GITHUB_ENV
+      - run: |
+          ./.github/utils/print-env.sh \
+            ${{ github.repository }} "${{ matrix.key }}" >>$GITHUB_ENV
       - uses: docker/metadata-action@v3
         id: meta
         with:

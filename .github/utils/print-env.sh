@@ -1,21 +1,26 @@
 #!/bin/sh -e
 
-key="${1}"
+repository="${1}"
+key="${3}"
 
 if test -z "${key}"; then
     exit 1
 fi
+
+project() {
+    echo "${repository}" | cut -d/ -f2
+}
 
 dir() {
     echo "${key}" | sed 's,@,/,'
 }
 
 image() {
-    echo "${key}" | sed -E 's,@.*,,'
+    echo "${key}" | cut -d/ -f1
 }
 
 tag() {
-    echo "${key}" | sed -E 's,.*@,,'
+    echo "${key}" | cut -d/ -f2
 }
 
 context() {
