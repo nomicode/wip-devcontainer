@@ -8,4 +8,4 @@ RUN mkdir /tmp/dist && \
 
 FROM alpine:3.14
 COPY --from=build /tmp/dist /usr/local/bin
-RUN ls -l /usr/local/bin
+RUN ls -lh /usr/local/bin
