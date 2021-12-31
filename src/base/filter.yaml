@@ -1,4 +1,4 @@
 base-package:
-  - src/base/package/**
+  - src/base/dev/**
 base-devcontainer:
   - src/base/devcontainer/**
