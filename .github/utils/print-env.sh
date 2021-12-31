@@ -24,9 +24,7 @@ tag() {
 }
 
 context() {
-    dir | while read -r path; do
-        find src -type d -path "*${path}"
-    done
+    find src -type d -path "*/$(component)/*" -path "*/$(tag)"
 }
 
 cat <<EOF

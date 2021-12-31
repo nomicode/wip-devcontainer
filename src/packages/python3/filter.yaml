@@ -2,9 +2,6 @@
 packages@csvkit:
   - src/packages/python3/**
   - src/packages/python3/csvkit/**
-packages@pipx:
-  - src/packages/python3/**
-  - src/packages/python3/pipx/**
 packages@poetry:
   - src/packages/python3/**
   - src/packages/python3/poetry/**
