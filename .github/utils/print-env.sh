@@ -23,5 +23,5 @@ context() {
 cat <<EOF
 IMAGE=$(image)
 TAG=$(tag)
-CONTEXT=$(context)
+CONTEXT=$(context)/$(tag)
 EOF
