@@ -1,4 +1,4 @@
-FROM nomiro/alpine-base:dev
+FROM nomiro/alpenglow-base:dev
 
 ENV GOPATH=/usr/local/go
 ENV GOBIN=/usr/local/bin

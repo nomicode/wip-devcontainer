@@ -1,14 +1,4 @@
-FROM nomiro/devcontainers:build-pyenv
+FROM nomiro/alpenglow-dev:pyenv
 
-ENV PY_MINOR=3.10
-ENV PYTHON_CONFIGURE_OPTS="--enable-shared"
-# Install the latest patch version
-RUN PY_VERSION="$(\
-  pyenv install --list | \
-  grep ${PY_MINOR} | sort -n | tail -n 1 | xargs \
-  )" && \
-  pyenv install ${PY_MINOR}-dev && \
-  pyenv install ${PY_VERSION} && \
-  pyenv global ${PY_VERSION}
-
-# Timestamp: 1640929993
+COPY build.sh /tmp/build.sh
+RUN /tmp/build.sh
