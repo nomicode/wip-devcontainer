@@ -10,6 +10,7 @@ LYCHEE_URL="https://git.io/JDvLb"
 
 curl -fsSL "${LYCHEE_URL}" >"${LYCHEE_TGZ}"
 tar -xzf "${LYCHEE_TGZ}"
+chown root:root "${LYCHEE_BIN}"
 chmod 755 "${LYCHEE_BIN}"
 mv "${LYCHEE_BIN}" /tmp/dist
 

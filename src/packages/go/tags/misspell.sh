@@ -10,6 +10,7 @@ MISSPELL_URL="https://git.io/JDvms"
 
 curl -fsSL "${MISSPELL_URL}" >"${MISSPELL_TGZ}"
 tar -xzf "${MISSPELL_TGZ}"
+chown root:root "${MISSPELL_BIN}"
 chmod 755 "${MISSPELL_BIN}"
 mv "${MISSPELL_BIN}" /tmp/dist
 
