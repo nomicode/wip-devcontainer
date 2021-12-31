@@ -32,7 +32,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        key: ${{ fromJSON(needs.list.outputs.tagkeyss) }}
+        key: ${{ fromJSON(needs.list.outputs.keys) }}
     steps:
       - uses: actions/checkout@v2
       - run: ./.github/utils/print-env.sh "${{ matrix.key }}" >>$GITHUB_ENV
