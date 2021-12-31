@@ -1,0 +1,5 @@
+universal:
+  - src/base/**
+  - src/packages/**
+  - src/sdk/**
+  - src/devcontainers/**

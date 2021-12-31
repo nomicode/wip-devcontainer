@@ -3,6 +3,8 @@
 # https://github.com/pyenv/pyenv/wiki/Common-build-problems
 # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
 
+cd "$(dirname "${0}")"
+
 apk add --no-cache \
     linux-headers \
     libffi-dev \
@@ -30,6 +32,6 @@ pyenv install "${PY_MINOR}-dev"
 pyenv install "${PY_VERSION}"
 pyenv global "${PY_VERSION}"
 
-pip3 install --verbose pyinstaller
+pip3 install --upgrade pip
 
-# Stamp: 1640947118
+# Stamp: 1640961879

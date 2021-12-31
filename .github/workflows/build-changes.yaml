@@ -76,3 +76,16 @@ jobs:
       dir: src/packages/rust
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  devcontainers:
+    name: devcontainers
+    needs:
+      - base-devcontainer
+      - packages-go
+      - packages-python3
+      - packages-rust
+    uses: nomiro/devcontainers/.github/workflows/build-matrix.yaml@main
+    with:
+      name: devcontainers
+      dir: src/devcontainers
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
