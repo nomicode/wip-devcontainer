@@ -21,7 +21,7 @@ context() {
 }
 
 cat <<EOF
-IMAGE=$(image)
+IMAGE=alpine-$(image)
 TAG=$(tag)
 CONTEXT=$(context)/$(tag)
 EOF
