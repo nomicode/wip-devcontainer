@@ -32,6 +32,4 @@ pyenv install "${PY_MINOR}-dev"
 pyenv install "${PY_VERSION}"
 pyenv global "${PY_VERSION}"
 
-mv pyscripts.py /usr/local/bin/pyscripts
-
 # Stamp: 1640947118
