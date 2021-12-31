@@ -1,3 +1,4 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:alpine-3.14
 
-# Timestamp: 1640929992
+COPY build.sh /tmp/build.sh
+RUN /tmp/build.sh

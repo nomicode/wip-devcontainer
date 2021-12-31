@@ -1,9 +1,6 @@
 dev-go:
   - src/base/package
   - src/package/go/**
-dev-py:
-  - src/base/package
-  - src/package/py/**
 dev-pyenv:
   - src/base/package
   - src/package/pyenv/**

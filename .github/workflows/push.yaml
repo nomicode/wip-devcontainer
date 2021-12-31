@@ -7,12 +7,14 @@ on:
 
 jobs:
   base:
+    name: src
     uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
     with:
       dir: src/base
     secrets:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
   dev:
+    name: src
     needs: base
     uses: nomiro/devcontainers/.github/workflows/action-build.yaml@main
     with:
