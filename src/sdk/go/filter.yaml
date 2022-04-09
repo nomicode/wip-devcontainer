@@ -1,3 +1,0 @@
-go:
-  - src/base/**
-  - src/sdk/go/**

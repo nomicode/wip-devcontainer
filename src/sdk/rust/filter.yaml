@@ -1,3 +1,0 @@
-rust:
-  - src/base/**
-  - src/sdk/rust/**

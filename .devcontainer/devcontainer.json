@@ -1,6 +1,6 @@
 {
-  // "image": "mcr.microsoft.com/vscode/devcontainers/base:alpine",
-  "image": "nomiro/alpenglow-devcontainers:universal",
+  "image": "rosemede/devcontainer:main",
+  "settings": {},
+	"extensions": [],
   "remoteUser": "vscode",
-  "extensions": ["jsynowiec.vscode-insertdatestring"]
 }

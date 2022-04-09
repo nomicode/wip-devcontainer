@@ -1,8 +1,0 @@
-misspell:
-  - src/base/sdk/**
-  - src/sdk/go/**
-  - src/packages/go/**
-woke:
-  - src/base/sdk/**
-  - src/sdk/go/**
-  - src/packages/go/**
