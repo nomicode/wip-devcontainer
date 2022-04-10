@@ -2,6 +2,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 
 ENV LC_ALL=C
 
+ARG DEBIAN_FRONTEND=noninteractive
 ARG NODE_INSTALL=https://deb.nodesource.com/setup_16.x
 
 COPY apt.txt /tmp/apt.txt
@@ -14,7 +15,6 @@ RUN apt-get update && \
 # -----------------------------------------------------------------------------
 
 FROM base AS python
-
 
 COPY requirements.txt /tmp
 RUN apt-get update && \
