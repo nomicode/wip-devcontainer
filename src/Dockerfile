@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu
+FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 
 ENV LC_ALL=C
 
@@ -6,18 +6,20 @@ ENV LC_ALL=C
 
 # -----------------------------------------------------------------------------
 
-# FROM base AS python
+FROM base AS python
 
-# WORKDIR /tmp
+WORKDIR /tmp
 
-# ENV PYTHONDONTWRITEBYTECODE=1
-# ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-# COPY requirements.txt /tmp
-# RUN apk add --no-cache tree py3-pip && \
-#   python3 -m venv /opt/venv  && \
-#   /opt/venv/bin/pip install --no-cache -r /tmp/requirements.txt && \
-#   tree /opt/venv
+COPY requirements.txt /tmp
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends python3-pip python3-venv && \
+  python3 -m venv /opt/venv && \
+  /opt/venv/bin/pip install --no-cache wheel && \
+  /opt/venv/bin/pip install --no-cache -r /tmp/requirements.txt && \
+  rm -rf /var/lib/apt/lists/*
 
 # rm __pycache__
 # rm pyc
@@ -118,18 +120,18 @@ ENV LC_ALL=C
 
 # -----------------------------------------------------------------------------
 
-# FROM base
+FROM base
 
-# COPY --from=python /opt/venv /opt/venv
-# ENV PATH="/opt/venv/bin:$PATH"
+COPY --from=python /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 
 # COPY apk.txt /tmp/apk.txt
 # RUN xargs apk add --no-cache </tmp/apk.txt
 
 # -----------------------------------------------------------------------------
 
-# COPY bashrc.sh /tmp/bashrc.sh
-# RUN cat /tmp/bashrc.sh >>/home/vscode/.bashrc
+COPY bashrc.sh /tmp/bashrc.sh
+RUN cat /tmp/bashrc.sh >>/home/vscode/.bashrc
 
 # -----------------------------------------------------------------------------
 
