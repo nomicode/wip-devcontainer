@@ -1,0 +1,31 @@
+filters:
+  # https://github.com/textlint/textlint-filter-rule-comments
+  comments: true
+
+rules:
+  # https://github.com/textlint-rule/textlint-rule-no-todo
+  no-todo: true
+
+  # https://github.com/azu/textlint-rule-no-empty-section
+  no-empty-section: true
+
+  # https://github.com/iwamatsu0430/textlint-rule-doubled-spaces
+  doubled-spaces: true
+
+  # https://github.com/azu/textlint-rule-unexpanded-acronym
+  unexpanded-acronym: true
+
+  # https://github.com/azu/textlint-rule-rousseau
+  rousseau: true
+
+  # https://github.com/azu/textlint-rule-en-max-word-count
+  en-max-word-count: true
+
+  # https://github.com/sapegin/textlint-rule-stop-words
+  stop-words: true
+
+  # https://github.com/textlint-rule/textlint-rule-en-capitalization
+  en-capitalization: true
+
+  # https://github.com/sapegin/textlint-rule-terminology
+  terminology: true

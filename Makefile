@@ -1,15 +1,9 @@
 
-.PHONY: stamp-all
-stamp-all:
-	@ utils/stamp.sh
+SRC_DIR = src
 
-.PHONY: yamlliny
-yamllint:
-	@ yamllint .
+init:
+	$(MAKE) -C $(SRC_DIR) init
 
-.PHONY: actionlint
-actionlint:
-	@ actionlint
 
-.PHONY: lint
-lint: yamllint actionlint
+clean:
+	$(MAKE) -C $(SRC_DIR) clean

@@ -1,6 +1,7 @@
-.venv
 *.log
-*.spec
-built
-dist
+go*
+node_modules
 package-lock.json
+package.json
+*.stamp
+downloads
