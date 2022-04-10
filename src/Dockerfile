@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 ENV LC_ALL=C
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG NODE_INSTALL=https://deb.nodesource.com/setup_16.x
+ARG NODE_INSTALL=https://deb.nodesource.com/setup_current.x
 
 COPY apt.txt /tmp/apt.txt
 RUN apt-get update && \
@@ -23,6 +23,16 @@ RUN apt-get update && \
   /opt/venv/bin/pip install --no-cache wheel && \
   /opt/venv/bin/pip install --no-cache -r /tmp/requirements.txt && \
   rm -rf /var/lib/apt/lists/*
+
+# -----------------------------------------------------------------------------
+
+FROM base AS node
+
+WORKDIR /tmp
+COPY package.json /tmp
+RUN npm install -g
+
+# TODO continue
 
 # -----------------------------------------------------------------------------
 

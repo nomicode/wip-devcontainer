@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@textlint-rule/textlint-rule-no-unmatched-pair": "",
+    "@textlint-rule/textlint-rule-proselint": "",
+    "dockerfilelint": "",
+    "html-minifier": "",
+    "lintspaces-cli": "",
+    "markdown-link-check": "",
+    "markdownlint-cli": "",
+    "prettier": "",
+    "textlint": "",
+    "textlint-filter-rule-allowlist": "",
+    "textlint-filter-rule-comments": "",
+    "textlint-filter-rule-node-types": "",
+    "textlint-rule-alex": "",
+    "textlint-rule-doubled-spaces": "",
+    "textlint-rule-en-capitalization": "",
+    "textlint-rule-en-max-word-count": "",
+    "textlint-rule-no-empty-section": "",
+    "textlint-rule-no-todo": "",
+    "textlint-rule-rousseau": "",
+    "textlint-rule-stop-words": "",
+    "textlint-rule-terminology": "",
+    "textlint-rule-unexpanded-acronym": "",
+    "textlint-rule-write-good": "",
+    "yarn": ""
+  }
+}
