@@ -10,9 +10,6 @@ FROM base AS python
 
 WORKDIR /tmp
 
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
 COPY requirements.txt /tmp
 RUN apt-get update && \
   apt-get install -y --no-install-recommends python3-pip python3-venv && \
@@ -112,6 +109,10 @@ RUN apt-get update && \
 # chown root:root "${MISSPELL_BIN}"
 # chmod 755 "${MISSPELL_BIN}"
 # mv "${MISSPELL_BIN}" /tmp/dist
+
+# -----------------------------------------------------------------------------
+
+# https://github.com/smallhadroncollider/brok
 
 # -----------------------------------------------------------------------------
 
