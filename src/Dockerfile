@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu AS base
+FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu # AS base
 
 ENV LC_ALL=C
 
