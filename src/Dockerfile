@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu # AS base
+FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu
 
 ENV LC_ALL=C
 
@@ -128,8 +128,8 @@ ENV LC_ALL=C
 
 # -----------------------------------------------------------------------------
 
-COPY bashrc.sh /tmp/bashrc.sh
-RUN cat /tmp/bashrc.sh >>/home/vscode/.bashrc
+# COPY bashrc.sh /tmp/bashrc.sh
+# RUN cat /tmp/bashrc.sh >>/home/vscode/.bashrc
 
 # -----------------------------------------------------------------------------
 
