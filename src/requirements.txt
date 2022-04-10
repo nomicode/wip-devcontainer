@@ -1,4 +1,0 @@
-docutils
-poetry
-proselint
-pyroma

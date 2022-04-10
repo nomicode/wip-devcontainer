@@ -2,7 +2,6 @@ bandit
 bash-completion
 black
 codespell
-docutils-common
 fd-find
 fdupes
 file
@@ -23,3 +22,6 @@ tree
 util-linux
 vulture
 yamllint
+python3-docutils
+python3-proselint
+python3-pyroma

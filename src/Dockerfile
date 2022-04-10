@@ -6,14 +6,12 @@ ENV LC_ALL=C
 
 # -----------------------------------------------------------------------------
 
-FROM base AS python
+FROM base AS poetry
 
-COPY requirements.txt /tmp
+ENV POETRY_HOME=/usr/local/poetry
 RUN apt-get update && \
   apt-get install -y --no-install-recommends python3-pip python3-venv && \
-  python3 -m venv /opt/venv && \
-  /opt/venv/bin/pip install --no-cache wheel && \
-  /opt/venv/bin/pip install --no-cache -r /tmp/requirements.txt && \
+  curl -sSL https://install.python-poetry.org | python3 - && \
   rm -rf /var/lib/apt/lists/*
 
 # rm __pycache__
@@ -129,8 +127,8 @@ RUN apt-get update && \
 
 FROM base
 
-COPY --from=python /opt/venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
+COPY --from=poetry /usr/local/poetry /usr/local/poetry
+ENV PATH="/usr/local/poetr/bin:$PATH"
 
 COPY apt.txt /tmp/apt.txt
 RUN apt-get update && \
