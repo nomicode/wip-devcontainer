@@ -8,8 +8,6 @@ ENV LC_ALL=C
 
 FROM base AS python
 
-WORKDIR /tmp
-
 COPY requirements.txt /tmp
 RUN apt-get update && \
   apt-get install -y --no-install-recommends python3-pip python3-venv && \
@@ -113,6 +111,14 @@ RUN apt-get update && \
 # -----------------------------------------------------------------------------
 
 # https://github.com/smallhadroncollider/brok
+# editorconfig-checker
+# shfmt
+# https://github.com/rhysd/fixred
+# https://github.com/hadolint/hadolint
+# https://github.com/rif/imgdup2go
+# https://github.com/client9/misspell
+# https://github.com/mvdan/sh#shfmt
+# https://github.com/errata-ai/vale
 
 # -----------------------------------------------------------------------------
 
@@ -126,8 +132,10 @@ FROM base
 COPY --from=python /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# COPY apk.txt /tmp/apk.txt
-# RUN xargs apk add --no-cache </tmp/apk.txt
+COPY apt.txt /tmp/apt.txt
+RUN apt-get update && \
+  xargs apt-get install -y --no-install-recommends </tmp/apt.txt && \
+  rm -rf /var/lib/apt/lists/*
 
 # -----------------------------------------------------------------------------
 

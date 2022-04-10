@@ -1,15 +1,4 @@
-bandit
-black
-codespell
 docutils
-flake8
-flake8-cognitive-complexity
-isort
 poetry
 proselint
-pycodestyle
-pydocstyle
-pylint
 pyroma
-vulture
-yamllint
