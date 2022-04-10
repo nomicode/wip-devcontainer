@@ -2,21 +2,38 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 
 ENV LC_ALL=C
 
-# RUN apk add --no-cache python3
+COPY apt.txt /tmp/apt.txt
+RUN apt-get update && \
+  xargs apt-get install -y --no-install-recommends </tmp/apt.txt && \
+  rm -rf /var/lib/apt/lists/*
 
 # -----------------------------------------------------------------------------
 
-# FROM base AS poetry
+FROM base AS python
 
-# ARG INSTAL_POETRY=https://install.python-poetry.org
-# ENV POETRY_HOME=/usr/local/poetry
-# RUN apt-get update && \
-#   apt-get install -y --no-install-recommends python3-pip python3-venv && \
-#   curl -sSL $INSTAL_POETRY | python3 - && \
-#   rm -rf /var/lib/apt/lists/*
+ARG INSTAL_POETRY=https://install.python-poetry.org
+ENV POETRY_HOME=/usr/local/poetry
 
-# rm __pycache__
-# rm pyc
+COPY requirements.txt /tmp
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends python3-pip python3-venv && \
+  python3 -m venv /opt/venv && \
+  /opt/venv/bin/pip install --no-cache wheel && \
+  /opt/venv/bin/pip install --no-cache -r /tmp/requirements.txt && \
+  curl -sSL $INSTAL_POETRY | python3 - && \
+  rm -rf /var/lib/apt/lists/*
+
+# -----------------------------------------------------------------------------
+
+FROM base
+
+COPY --from=python /opt/venv /opt/venv
+ENV PATH="$POETRY_HOME:/opt/venv/bin:$PATH"
+
+# -----------------------------------------------------------------------------
+
+COPY bashrc.sh /tmp/bashrc.sh
+RUN cat /tmp/bashrc.sh >>/home/vscode/.bashrc
 
 # -----------------------------------------------------------------------------
 
@@ -123,27 +140,6 @@ ENV LC_ALL=C
 
 # rm -rf /root/.cache
 # rm -rf /root/.config
-
-# -----------------------------------------------------------------------------
-
-FROM base
-
-ARG INSTALL_NODE=https://deb.nodesource.com/setup_16.x
-ARG INSTAL_POETRY=https://install.python-poetry.org
-ENV POETRY_HOME=/usr/local/poetry
-ENV PATH="$POETRY_HOME/bin:$PATH"
-
-COPY apt.txt /tmp/apt.txt
-RUN curl -sSL $INSTALL_NODE | bash - && \
-  apt-get update && \
-  xargs apt-get install -y --no-install-recommends </tmp/apt.txt && \
-  curl -sSL $INSTAL_POETRY | python3 - && \
-  rm -rf /var/lib/apt/lists/*
-
-# -----------------------------------------------------------------------------
-
-COPY bashrc.sh /tmp/bashrc.sh
-RUN cat /tmp/bashrc.sh >>/home/vscode/.bashrc
 
 # -----------------------------------------------------------------------------
 

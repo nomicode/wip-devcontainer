@@ -1,0 +1,12 @@
+bandit
+black
+codespell
+flake8
+isort
+pydocstyle
+pylint
+docutils
+proselint
+pyroma
+vulture
+yamllint
