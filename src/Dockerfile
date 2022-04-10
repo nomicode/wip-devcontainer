@@ -6,13 +6,14 @@ ENV LC_ALL=C
 
 # -----------------------------------------------------------------------------
 
-FROM base AS poetry
+# FROM base AS poetry
 
-ENV POETRY_HOME=/usr/local/poetry
-RUN apt-get update && \
-  apt-get install -y --no-install-recommends python3-pip python3-venv && \
-  curl -sSL https://install.python-poetry.org | python3 - && \
-  rm -rf /var/lib/apt/lists/*
+# ARG INSTAL_POETRY=https://install.python-poetry.org
+# ENV POETRY_HOME=/usr/local/poetry
+# RUN apt-get update && \
+#   apt-get install -y --no-install-recommends python3-pip python3-venv && \
+#   curl -sSL $INSTAL_POETRY | python3 - && \
+#   rm -rf /var/lib/apt/lists/*
 
 # rm __pycache__
 # rm pyc
@@ -127,12 +128,16 @@ RUN apt-get update && \
 
 FROM base
 
-COPY --from=poetry /usr/local/poetry /usr/local/poetry
-ENV PATH="/usr/local/poetr/bin:$PATH"
+ARG INSTALL_NODE=https://deb.nodesource.com/setup_16.x
+ARG INSTAL_POETRY=https://install.python-poetry.org
+ENV POETRY_HOME=/usr/local/poetry
+ENV PATH="$POETRY_HOME/bin:$PATH"
 
 COPY apt.txt /tmp/apt.txt
-RUN apt-get update && \
+RUN curl -sSL $INSTALL_NODE | sh - && \
+  apt-get update && \
   xargs apt-get install -y --no-install-recommends </tmp/apt.txt && \
+  curl -sSL $INSTAL_POETRY | python3 - && \
   rm -rf /var/lib/apt/lists/*
 
 # -----------------------------------------------------------------------------
