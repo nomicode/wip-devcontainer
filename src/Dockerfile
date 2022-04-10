@@ -134,7 +134,7 @@ ENV POETRY_HOME=/usr/local/poetry
 ENV PATH="$POETRY_HOME/bin:$PATH"
 
 COPY apt.txt /tmp/apt.txt
-RUN curl -sSL $INSTALL_NODE | sh - && \
+RUN curl -sSL $INSTALL_NODE | bash - && \
   apt-get update && \
   xargs apt-get install -y --no-install-recommends </tmp/apt.txt && \
   curl -sSL $INSTAL_POETRY | python3 - && \
