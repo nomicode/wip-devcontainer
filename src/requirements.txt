@@ -1,12 +1,13 @@
 bandit
 black
 codespell
+docutils
 flake8
 isort
+poetry
+proselint
 pydocstyle
 pylint
-docutils
-proselint
 pyroma
 vulture
 yamllint

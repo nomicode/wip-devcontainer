@@ -2,8 +2,12 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 
 ENV LC_ALL=C
 
+ARG NODE_INSTALL=https://deb.nodesource.com/setup_16.x
+
 COPY apt.txt /tmp/apt.txt
 RUN apt-get update && \
+  curl -sSL $NODE_INSTALL | bash - && \
+  apt-get install -y --no-install-recommends nodejs && \
   xargs apt-get install -y --no-install-recommends </tmp/apt.txt && \
   rm -rf /var/lib/apt/lists/*
 
@@ -11,8 +15,6 @@ RUN apt-get update && \
 
 FROM base AS python
 
-ARG INSTAL_POETRY=https://install.python-poetry.org
-ENV POETRY_HOME=/usr/local/poetry
 
 COPY requirements.txt /tmp
 RUN apt-get update && \
@@ -20,7 +22,6 @@ RUN apt-get update && \
   python3 -m venv /opt/venv && \
   /opt/venv/bin/pip install --no-cache wheel && \
   /opt/venv/bin/pip install --no-cache -r /tmp/requirements.txt && \
-  curl -sSL $INSTAL_POETRY | python3 - && \
   rm -rf /var/lib/apt/lists/*
 
 # -----------------------------------------------------------------------------
@@ -28,7 +29,7 @@ RUN apt-get update && \
 FROM base
 
 COPY --from=python /opt/venv /opt/venv
-ENV PATH="$POETRY_HOME:/opt/venv/bin:$PATH"
+ENV PATH="/opt/venv/bin:$PATH"
 
 # -----------------------------------------------------------------------------
 
