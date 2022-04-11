@@ -3,11 +3,11 @@ FROM ubuntu:devel as base
 ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /tmp
-COPY bin/ vendor/ /tmp/
+COPY * /tmp/
 RUN ls -l /tmp
 RUN sed -i -r 's,(path-exclude=/usr/share/man/\*),# \1,' \
-  /tmp/bin/reconfigure-dpkg.sh && \
-  /tmp/vendor/bin/common-debian.sh && \
+  /tmp/reconfigure-dpkg.sh && \
+  /tmp/common-debian.sh && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /tmp/*
