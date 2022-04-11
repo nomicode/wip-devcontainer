@@ -7,8 +7,7 @@ COPY * /tmp/
 RUN /tmp/reconfigure-dpkg.sh && \
   /tmp/common-debian.sh && \
   apt-get clean -y && \
-  rm -rf /var/lib/apt/lists/* && \
-  rm -rf /tmp/*
+  rm -rf /var/lib/apt/lists/*
 
 # ENV LC_ALL=C
 
