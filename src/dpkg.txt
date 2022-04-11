@@ -10,7 +10,6 @@ imagemagick
 isort
 make
 moreutils
-npm
 nodejs
 optipng
 pandoc

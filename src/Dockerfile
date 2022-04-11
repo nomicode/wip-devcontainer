@@ -4,7 +4,6 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /tmp
 COPY * /tmp/
-RUN ls -l
 RUN /tmp/nodesource-setup.sh && \
   /tmp/apt-install.sh
 
