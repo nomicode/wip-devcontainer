@@ -4,6 +4,7 @@ coreutils
 csvkit
 dedupe
 deps
+dpkg
 env
 ghc
 GOPATH
@@ -24,6 +25,7 @@ pyscripts
 sed
 snyk
 TGZ
+unminimizing
 usr
 venv
 vscodeuniversal
