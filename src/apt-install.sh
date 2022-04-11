@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 apt-get update
-dpkg --set-selections <dselect.txt
-apt-get dselect-upgrade
+apt-get install -y --no-install-recommends <dpkg.txt
 apt-get clean -y
+dpkg -l | grep ii | awk '{print $2" "$3}' > dpkg-lock.txt
 rm -rf /var/lib/apt/lists/*

@@ -1,4 +1,5 @@
 apk
+awk
 cli
 coreutils
 csvkit
