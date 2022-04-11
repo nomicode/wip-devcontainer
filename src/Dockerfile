@@ -6,6 +6,7 @@ WORKDIR /tmp
 COPY * /tmp/
 RUN /tmp/reconfigure-dpkg.sh && \
   /tmp/common-debian.sh && \
+  xargs apt-get install -y --no-install-recommends </tmp/apt-install.txt && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
 
