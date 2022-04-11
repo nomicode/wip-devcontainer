@@ -5,8 +5,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 WORKDIR /tmp
 COPY * /tmp/
 RUN ls -l
-RUN /tmp/nodesource-setup.sh && \
-  /tmp/apt-install.sh
+RUN /tmp/nodesource-setup.sh
+#  /tmp/apt-install.sh
 
 # apt
 # linkchecker
@@ -26,21 +26,21 @@ RUN /tmp/nodesource-setup.sh && \
 
 # -----------------------------------------------------------------------------
 
-FROM base AS node
+# FROM base AS node
 
-WORKDIR /tmp
-COPY * /tmp/
-RUN /tmp/npm-install.sh && \
-  mkdir -p /opt/npm && \
-  mv /tmp/node_modules /opt/npm \
-  ln -s /opt/npm/node_modules/.bin /opt/npm/bin
+# WORKDIR /tmp
+# COPY * /tmp/
+# RUN /tmp/npm-install.sh && \
+#   mkdir -p /opt/npm && \
+#   mv /tmp/node_modules /opt/npm \
+#   ln -s /opt/npm/node_modules/.bin /opt/npm/bin
 
 # -----------------------------------------------------------------------------
 
-FROM base
+# FROM base
 
-COPY --from=node /opt/npm /opt/npm
-ENV PATH="/opt/npm/bin:$PATH"
+# COPY --from=node /opt/npm /opt/npm
+# ENV PATH="/opt/npm/bin:$PATH"
 
 # -----------------------------------------------------------------------------
 
