@@ -4,7 +4,7 @@ ARG GH_RAW=https://raw.githubusercontent.com
 ARG MS_VSCODE_DEVCONTAINERS=microsoft/vscode-dev-containers
 ARG COMMON_DEBIAN=main/script-library/common-debian.sh
 
-RUN curl -sSL $GH_RAW/$MS_VSCODE_DEVCONTAINERS/$COMMON_DEBIAN | bash - && \
+RUN wget -q -O - $GH_RAW/$MS_VSCODE_DEVCONTAINERS/$COMMON_DEBIAN | bash - && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
 
