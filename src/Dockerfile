@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /tmp
-COPY nodesource-setup.sh dselect.txt apt-install.sh /tmp/
+COPY vendor/nodesource-setup.sh dselect.txt apt-install.sh /tmp/
 RUN nodesource-setup.sh && \
   apt-install.sh
 
