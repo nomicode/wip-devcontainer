@@ -3,7 +3,7 @@ FROM ubuntu:devel as base
 ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /tmp
-COPY common-debian.sh /tmp/common-debian.sh
+COPY vendor/common-debian.sh /tmp/common-debian.sh
 RUN /tmp/common-debian.sh && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
