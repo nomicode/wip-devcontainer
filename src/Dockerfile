@@ -4,6 +4,8 @@ ARG GH_RAW=https://raw.githubusercontent.com
 ARG MS_VSCODE_DEVCONTAINERS=microsoft/vscode-dev-containers
 ARG COMMON_DEBIAN=main/script-library/common-debian.sh
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends curl ca-certificates
 RUN curl -sSL $GH_RAW/$MS_VSCODE_DEVCONTAINERS/$COMMON_DEBIAN | bash -
