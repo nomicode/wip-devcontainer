@@ -31,7 +31,7 @@ WORKDIR /tmp
 COPY * /tmp/
 RUN /tmp/npm-install.sh && \
   mkdir -p /opt/npm && \
-  mv /tmp/node_modules /opt/npm \
+  mv /tmp/node_modules /opt/npm && \
   ln -s /opt/npm/node_modules/.bin /opt/npm/bin
 
 # -----------------------------------------------------------------------------
