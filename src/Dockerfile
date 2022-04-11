@@ -3,7 +3,8 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /tmp
-COPY * /tmp/
+COPY ./* /tmp/
+RUN ls -l
 RUN nodesource-setup.sh && \
   apt-install.sh
 
@@ -28,7 +29,7 @@ RUN nodesource-setup.sh && \
 FROM base AS node
 
 WORKDIR /tmp
-COPY * /tmp/
+COPY ./* /tmp/
 RUN npm-install.sh && \
   mkdir -p /opt/npm && \
   mv node_modules /opt/npm \
