@@ -4,9 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /tmp
 COPY * /tmp/
-RUN ls -l /tmp
-RUN sed -i -r 's,(path-exclude=/usr/share/man/\*),# \1,' \
-  /tmp/reconfigure-dpkg.sh && \
+RUN /tmp/reconfigure-dpkg.sh && \
   /tmp/common-debian.sh && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/* && \
