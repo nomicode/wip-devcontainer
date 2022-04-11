@@ -2,13 +2,8 @@ GH_RAW = https://raw.githubusercontent.com
 MS_VSCODE_DEVCONTAINERS = microsoft/vscode-dev-containers
 COMMON_DEBIAN = main/script-library/common-debian.sh
 
-NODESOURCE_SETUP = https://deb.nodesource.com/setup_current.x
-
 .PHONY: init
 init:
-
-GREP_ORIG=debconf: delaying package configuration
-GREP_APPEND=update-alternatives: warning: skip creation
 
 init: vendor/common-debian.sh
 vendor/common-debian.sh:
@@ -17,7 +12,10 @@ vendor/common-debian.sh:
 	sed -i 's,liblttng-ust0,liblttng-ust1,' $@
 	chmod +x $@
 
-# NodeSource does not support the development version of Ubuntu
+# NodeSource does not support Ubuntu development releases
+#
+# NODESOURCE_SETUP = https://deb.nodesource.com/setup_current.x
+#
 # init: nodesource-setup.sh
 # vendor/nodesource-setup.sh:
 # 	mkdir -p $(dir $@)

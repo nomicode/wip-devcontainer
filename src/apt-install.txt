@@ -10,7 +10,11 @@ htop
 imagemagick
 isort
 make
+man-db
+manpages-posix
+manpages-posix-dev
 moreutils
+npm
 optipng
 pandoc
 pydocstyle
@@ -20,10 +24,10 @@ python3-poetry
 python3-proselint
 python3-pyroma
 shellcheck
+shfmt
 silversearcher-ag
 tidy
 tree
 util-linux
 vulture
 yamllint
-npm

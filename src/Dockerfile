@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /tmp
 COPY * /tmp/
-RUN /tmp/reconfigure-dpkg.sh && \
+RUN yes | unminimize && \
   /tmp/common-debian.sh && \
   xargs apt-get install -y --no-install-recommends </tmp/apt-install.txt && \
   xargs npm install --global </tmp/npm-install.txt && \
@@ -14,6 +14,22 @@ RUN /tmp/reconfigure-dpkg.sh && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /root/.npm && \
   rm -rf /tmp/*
+
+# apt
+# linkchecker
+# w3c-linkchecker
+# linklint
+# misspell-fixer
+# mwic
+
+# not apt
+# brok
+# ec
+# hadolint
+# imgdup2go
+# misspell
+# vale
+# vale-server
 
 # -----------------------------------------------------------------------------
 
