@@ -3,7 +3,7 @@ init:
 
 NODESOURCE_SETUP = https://deb.nodesource.com/setup_current.x
 
-init: nodesource-setup.sh
+init: vendor/nodesource-setup.sh
 vendor/nodesource-setup.sh:
 	mkdir -p $(dir $@)
 	curl -sSL $(NODESOURCE_SETUP) >$@
