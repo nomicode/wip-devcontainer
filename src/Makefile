@@ -9,6 +9,7 @@ init: vendor/common-debian.sh
 vendor/common-debian.sh:
 	mkdir -p $(dir $@)
 	curl -sSL $(GH_RAW)/$(MS_VSCODE_DEVCONTAINERS)/$(COMMON_DEBIAN) >$@
+	sed -i -r 's,^(ADD_NON_FREE_PACKAGES=.*)(false),\1true,' $@
 	sed -i 's/liblttng-ust0/liblttng-ust1/' $@
 	chmod +x $@
 
