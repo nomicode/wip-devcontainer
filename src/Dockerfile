@@ -1,23 +1,11 @@
 FROM ubuntu:devel as base
 
-ARG GH_RAW=https://raw.githubusercontent.com
-ARG MS_VSCODE_DEVCONTAINERS=microsoft/vscode-dev-containers
-ARG COMMON_DEBIAN=main/script-library/common-debian.sh
-
 ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /tmp
-
-RUN apt-get update && \
-  apt-get install -y --no-install-recommends curl ca-certificates && \
-  curl -sSL $GH_RAW/$MS_VSCODE_DEVCONTAINERS/$COMMON_DEBIAN \
-  >/tmp/common-debian.sh && \
-  sed -i 's/liblttng-ust0/liblttng-ust1/' /tmp/common-debian.sh && \
-  chmod 755 /tmp/common-debian.sh && \
-  rm -rf /var/lib/apt/lists/*
-
+COPY common-debian.sh /tmp/common-debian.sh
 RUN /tmp/common-debian.sh && \
-  apt-get clean -y &&\
+  apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
 
 # ENV LC_ALL=C

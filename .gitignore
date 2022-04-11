@@ -4,3 +4,4 @@
 built
 dist
 package-lock.json
+vendor
