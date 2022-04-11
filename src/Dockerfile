@@ -13,6 +13,7 @@ RUN apt-get update && \
   curl -sSL $GH_RAW/$MS_VSCODE_DEVCONTAINERS/$COMMON_DEBIAN \
   >/tmp/common-debian.sh && \
   sed -i 's/liblttng-ust0/liblttng-ust1/' /tmp/common-debian.sh && \
+  chmod 755 /tmp/common-debian.sh && \
   rm -rf /var/lib/apt/lists/*
 
 RUN /tmp/common-debian.sh && \
