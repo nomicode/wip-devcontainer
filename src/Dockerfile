@@ -1,50 +1,61 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 
+ARG DEBIAN_FRONTEND=noninteractive
+RUN sed -i 's,focal,jammy,g' /etc/apt/sources.list && \
+  apt-get update && \
+  apt-get upgrade -y --no-install-recommends && \
+  rm -rf /var/lib/apt/lists/*
+
+FROM scratch
+
+COPY / / --from build
+
 ENV LC_ALL=C
 
-ARG DEBIAN_FRONTEND=noninteractive
-ARG NODE_INSTALL=https://deb.nodesource.com/setup_current.x
 
-COPY apt.txt /tmp/apt.txt
-RUN apt-get update && \
-  curl -sSL $NODE_INSTALL | bash - && \
-  apt-get install -y --no-install-recommends nodejs && \
-  xargs apt-get install -y --no-install-recommends </tmp/apt.txt && \
-  rm -rf /var/lib/apt/lists/*
+# ARG DEBIAN_FRONTEND=noninteractive
+# ARG NODE_INSTALL=https://deb.nodesource.com/setup_current.x
 
-# -----------------------------------------------------------------------------
-
-FROM base AS python
-
-COPY requirements.txt /tmp
-RUN apt-get update && \
-  apt-get install -y --no-install-recommends python3-pip python3-venv && \
-  python3 -m venv /opt/venv && \
-  /opt/venv/bin/pip install --no-cache wheel && \
-  /opt/venv/bin/pip install --no-cache -r /tmp/requirements.txt && \
-  rm -rf /var/lib/apt/lists/*
+# COPY apt.txt /tmp/apt.txt
+# RUN apt-get update && \
+#   curl -sSL $NODE_INSTALL | bash - && \
+#   apt-get install -y --no-install-recommends nodejs && \
+#   xargs apt-get install -y --no-install-recommends </tmp/apt.txt && \
+#   rm -rf /var/lib/apt/lists/*
 
 # -----------------------------------------------------------------------------
 
-FROM base AS node
+# FROM base AS python
 
-WORKDIR /tmp
-COPY package.json /tmp
-RUN npm install -g
+# COPY requirements.txt /tmp
+# RUN apt-get update && \
+#   apt-get install -y --no-install-recommends python3-pip python3-venv && \
+#   python3 -m venv /opt/venv && \
+#   /opt/venv/bin/pip install --no-cache wheel && \
+#   /opt/venv/bin/pip install --no-cache -r /tmp/requirements.txt && \
+#   rm -rf /var/lib/apt/lists/*
+
+# -----------------------------------------------------------------------------
+
+# FROM base AS node
+
+# WORKDIR /tmp
+# COPY package.json /tmp
+# RUN npm install -g
 
 # TODO continue
 
 # -----------------------------------------------------------------------------
 
-FROM base
+# FROM base
 
-COPY --from=python /opt/venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
+# COPY --from=python /opt/venv /opt/venv
+# ENV PATH="/opt/venv/bin:$PATH"
 
 # -----------------------------------------------------------------------------
 
-COPY bashrc.sh /tmp/bashrc.sh
-RUN cat /tmp/bashrc.sh >>/home/vscode/.bashrc
+# COPY bashrc.sh /tmp/bashrc.sh
+# RUN cat /tmp/bashrc.sh >>/home/vscode/.bashrc
 
 # -----------------------------------------------------------------------------
 
