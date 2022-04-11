@@ -5,6 +5,7 @@ csvkit
 dedupe
 deps
 dpkg
+dselect
 env
 ghc
 GOPATH

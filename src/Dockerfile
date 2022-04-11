@@ -1,19 +1,11 @@
-FROM ubuntu:devel as base
+FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 
 ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /tmp
-COPY * /tmp/
-RUN yes | unminimize && \
-  /tmp/common-debian.sh && \
-  xargs apt-get install -y --no-install-recommends </tmp/apt-install.txt && \
-  xargs npm install --global </tmp/npm-install.txt && \
-  npm dedupe && \
-  npm cache clean --force && \
-  apt-get clean -y && \
-  rm -rf /var/lib/apt/lists/* && \
-  rm -rf /root/.npm && \
-  rm -rf /tmp/*
+COPY nodesource-setup.sh dselect.txt apt-install.sh /tmp/
+RUN nodesource-setup.sh && \
+  apt-install.sh
 
 # apt
 # linkchecker
@@ -33,32 +25,21 @@ RUN yes | unminimize && \
 
 # -----------------------------------------------------------------------------
 
-# FROM base AS python
+FROM base AS node
 
-# COPY requirements.txt /tmp
-# RUN apt-get update && \
-#   apt-get install -y --no-install-recommends python3-pip python3-venv && \
-#   python3 -m venv /opt/venv && \
-#   /opt/venv/bin/pip install --no-cache wheel && \
-#   /opt/venv/bin/pip install --no-cache -r /tmp/requirements.txt && \
-#   rm -rf /var/lib/apt/lists/*
-
-# -----------------------------------------------------------------------------
-
-# FROM base AS node
-
-# WORKDIR /tmp
-# COPY package.json /tmp
-# RUN npm install -g
-
-# TODO continue
+WORKDIR /tmp
+COPY package.json npm-install.sh /tmp/
+RUN npm-install.sh && \
+  mkdir -p /opt/npm && \
+  mv node_modules /opt/npm \
+  ln -s /opt/npm/node_modules/.bin /opt/npm/bin
 
 # -----------------------------------------------------------------------------
 
-# FROM base
+FROM base
 
-# COPY --from=python /opt/venv /opt/venv
-# ENV PATH="/opt/venv/bin:$PATH"
+COPY --from=node /opt/npm /opt/npm
+ENV PATH="/opt/npm/bin:$PATH"
 
 # -----------------------------------------------------------------------------
 
