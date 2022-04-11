@@ -6,11 +6,18 @@ ARG COMMON_DEBIAN=main/script-library/common-debian.sh
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends curl ca-certificates
-RUN curl -sSL $GH_RAW/$MS_VSCODE_DEVCONTAINERS/$COMMON_DEBIAN | bash -
-RUN apt-get clean -y
-RUN rm -rf /var/lib/apt/lists/*
+WORKDIR /tmp
+
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends curl ca-certificates && \
+  curl -sSL $GH_RAW/$MS_VSCODE_DEVCONTAINERS/$COMMON_DEBIAN \
+  >/tmp/common-debian.sh && \
+  sed -i 's/liblttng-ust0/liblttng-ust1/' /tmp/common-debian.sh && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN /tmp/common-debian.sh && \
+  apt-get clean -y &&\
+  rm -rf /var/lib/apt/lists/*
 
 # ENV LC_ALL=C
 
