@@ -3,7 +3,7 @@ FROM ubuntu:devel as base
 ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /tmp
-COPY bin vendor /tmp/
+COPY bin/* vendor/* /tmp/
 RUN ls -l /tmp
 RUN sed -i -r 's,(path-exclude=/usr/share/man/\*),# \1,' \
   /tmp/bin/reconfigure-dpkg.sh && \
