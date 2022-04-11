@@ -26,3 +26,4 @@ tree
 util-linux
 vulture
 yamllint
+npm

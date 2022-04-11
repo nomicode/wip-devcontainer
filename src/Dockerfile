@@ -7,20 +7,13 @@ COPY * /tmp/
 RUN /tmp/reconfigure-dpkg.sh && \
   /tmp/common-debian.sh && \
   xargs apt-get install -y --no-install-recommends </tmp/apt-install.txt && \
+  xargs npm install --global </tmp/npm-install.txt && \
+  npm dedupe && \
+  npm cache clean --force && \
   apt-get clean -y && \
-  rm -rf /var/lib/apt/lists/*
-
-# ENV LC_ALL=C
-
-# ARG DEBIAN_FRONTEND=noninteractive
-# ARG NODE_INSTALL=https://deb.nodesource.com/setup_current.x
-
-# COPY apt.txt /tmp/apt.txt
-# RUN apt-get update && \
-#   curl -sSL $NODE_INSTALL | bash - && \
-#   apt-get install -y --no-install-recommends nodejs && \
-#   xargs apt-get install -y --no-install-recommends </tmp/apt.txt && \
-#   rm -rf /var/lib/apt/lists/*
+  rm -rf /var/lib/apt/lists/* && \
+  rm -rf /root/.npm && \
+  rm -rf /tmp/*
 
 # -----------------------------------------------------------------------------
 
