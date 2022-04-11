@@ -1,17 +1,14 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
+FROM ubuntu:devel as base
 
-ARG DEBIAN_FRONTEND=noninteractive
-RUN sed -i 's,focal,jammy,g' /etc/apt/sources.list && \
-  apt-get update && \
-  apt-get upgrade -y --no-install-recommends && \
+ARG GH_RAW=https://raw.githubusercontent.com
+ARG MS_VSCODE_DEVCONTAINERS=microsoft/vscode-dev-containers
+ARG COMMON_DEBIAN=main/script-library/common-debian.sh
+
+RUN curl -sSL $GH_RAW/$MS_VSCODE_DEVCONTAINERS/$COMMON_DEBIAN | bash - && \
+  apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
 
-FROM scratch
-
-COPY --from=base / /
-
-ENV LC_ALL=C
-
+# ENV LC_ALL=C
 
 # ARG DEBIAN_FRONTEND=noninteractive
 # ARG NODE_INSTALL=https://deb.nodesource.com/setup_current.x
