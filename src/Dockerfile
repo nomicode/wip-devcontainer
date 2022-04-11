@@ -8,7 +8,7 @@ RUN sed -i 's,focal,jammy,g' /etc/apt/sources.list && \
 
 FROM scratch
 
-COPY / / --from build
+COPY / / --from base
 
 ENV LC_ALL=C
 
