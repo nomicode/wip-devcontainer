@@ -6,15 +6,12 @@ fd-find
 fdupes
 file
 flake8
-htop
 imagemagick
 isort
 make
-man-db
-manpages-posix
-manpages-posix-dev
 moreutils
 npm
+nodejs
 optipng
 pandoc
 pydocstyle
