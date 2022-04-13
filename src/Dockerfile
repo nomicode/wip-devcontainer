@@ -1,11 +1,9 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 
-ARG DEBIAN_FRONTEND=noninteractive
+FROM base AS apt
 
-WORKDIR /tmp
-COPY * /tmp/
-RUN /tmp/nodesource-setup.sh && \
-  /tmp/apt-install.sh
+COPY vendor/nodesource-setup.sh dpkg.txt apt-install.sh /tmp/
+RUN /tmp/nodesource-setup.sh && /tmp/apt-install.sh
 
 # apt
 # linkchecker
@@ -38,6 +36,7 @@ RUN /tmp/npm-install.sh && \
 
 FROM base
 
+COPY --from=apt / /
 COPY --from=node /opt/npm /opt/npm
 ENV PATH="/opt/npm/bin:$PATH"
 
