@@ -1,9 +1,8 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 
 WORKDIR /tmp
-COPY vendor/nodesource-setup.sh dpkg.txt apt-install.sh /tmp/
-RUN /tmp/nodesource-setup.sh && \
-  /tmp/apt-install.sh
+COPY dpkg.txt apt-install.sh /tmp/
+RUN /tmp/apt-install.sh
 
 # apt
 # linkchecker
@@ -23,19 +22,7 @@ RUN /tmp/nodesource-setup.sh && \
 
 # -----------------------------------------------------------------------------
 
-FROM base AS pip
-
-WORKDIR /tmp
-COPY requirements.txt pip-install.sh /tmp/
-RUN /tmp/pip-install.sh
-
-# -----------------------------------------------------------------------------
-
 FROM base AS pipx
-
-ARG PIPX_HOME=/opt/pipx
-ARG PIPX_BIN_DIR=/opt/pipx/bin
-ARG USE_EMOJI=false
 
 WORKDIR /tmp
 COPY requirements-pipx.txt pipx-install.sh /tmp/
@@ -43,37 +30,18 @@ RUN /tmp/pipx-install.sh
 
 # -----------------------------------------------------------------------------
 
-FROM base AS poetry
-
-ARG POETRY_HOME=/opt/poetry
-WORKDIR /tmp
-COPY vendor/get-poetry.py /tmp
-RUN python3 - </tmp/get-poetry.py
-
-# -----------------------------------------------------------------------------
-
 FROM base AS node
 
 WORKDIR /tmp
 COPY package.json npm-install.sh /tmp/
-RUN /tmp/nodesource-setup.sh && \
-  /tmp/npm-install.sh && \
-  mkdir -p /opt/npm && \
-  mv /tmp/node_modules /opt/npm && \
-  ln -s /opt/npm/node_modules/.bin /opt/npm/bin
+RUN /tmp/npm-install.sh
 
 # -----------------------------------------------------------------------------
 
 FROM base
 
-COPY --from=pip /opt/pip /opt/pip
-ENV PATH="/opt/pip/bin:$PATH"
-
 COPY --from=pipx /opt/pipx /opt/pipx
 ENV PATH="/opt/pip/bin:$PATH"
-
-COPY --from=poetry /opt/poetry /opt/poetry
-ENV PATH="/opt/poetry/bin:$PATH"
 
 COPY --from=node /opt/npm /opt/npm
 ENV PATH="/opt/npm/bin:$PATH"
