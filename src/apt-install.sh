@@ -6,7 +6,7 @@ DEBIAN_FRONTEND=noninteractive
 export DEBIAN_FRONTEND
 
 # Runs `apt-get update` for us
-curl -sSL "${NODESOURCE_SETUP}" | bash -
+curl -sSL "${NODESOURCE_SETUP}" | bash - >/dev/null
 
 xargs apt-get install -qq -y --no-install-recommends >/dev/null <dpkg.txt
 apt-get clean -y
