@@ -69,7 +69,7 @@ FROM base
 COPY --from=pip /opt/pip /opt/pip
 ENV PATH="/opt/pip/bin:$PATH"
 
-COPY --from=pip /opt/pip /opt/pipx
+COPY --from=pip /opt/pipx /opt/pipx
 ENV PATH="/opt/pip/bin:$PATH"
 
 COPY --from=poetry /opt/poetry /opt/poetry
