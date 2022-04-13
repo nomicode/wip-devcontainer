@@ -46,7 +46,7 @@ RUN /tmp/nodesource-setup.sh && \
 
 FROM base
 
-COPY --from=node /opt/poetry /opt/poetry
+COPY --from=poetry /opt/poetry /opt/poetry
 ENV PATH="/opt/poetry/bin:$PATH"
 
 COPY --from=node /opt/npm /opt/npm
