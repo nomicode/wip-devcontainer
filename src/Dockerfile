@@ -3,7 +3,10 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 FROM base AS apt
 
 COPY vendor/nodesource-setup.sh dpkg.txt apt-install.sh /tmp/
+RUN find / -type f > /root/before.txt
 RUN /tmp/nodesource-setup.sh && /tmp/apt-install.sh
+RUN find / -type f > /root/after.txt
+RUN diff /root/before.txt /root/after.txt
 
 # apt
 # linkchecker
