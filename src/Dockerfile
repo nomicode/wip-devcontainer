@@ -28,6 +28,8 @@ RUN diff /root/before.txt /root/after.txt
 
 FROM base AS node
 
+COPY --from=apt / /
+
 WORKDIR /tmp
 COPY * /tmp/
 RUN /tmp/npm-install.sh && \
@@ -39,7 +41,6 @@ RUN /tmp/npm-install.sh && \
 
 FROM base
 
-COPY --from=apt / /
 COPY --from=node /opt/npm /opt/npm
 ENV PATH="/opt/npm/bin:$PATH"
 
