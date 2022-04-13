@@ -1,11 +1,8 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 
 WORKDIR /tmp
-COPY vendor/nodesource-setup.sh dpkg.txt apt-install.sh /tmp/
-RUN find / -type f > /root/before.txt
-RUN /tmp/nodesource-setup.sh && /tmp/apt-install.sh
-RUN find / -type f > /root/after.txt
-RUN diff /root/before.txt /root/after.txt | grep -vE '^/cat/' | grep -vE '^/proc' | grep -vE '^/usr/'
+COPY dpkg.txt apt-install.sh /tmp/
+RUN /tmp/apt-install.sh
 
 # apt
 # linkchecker
@@ -28,8 +25,9 @@ RUN diff /root/before.txt /root/after.txt | grep -vE '^/cat/' | grep -vE '^/proc
 FROM base AS node
 
 WORKDIR /tmp
-COPY * /tmp/
-RUN /tmp/npm-install.sh && \
+COPY vendor/nodesource-setup.sh /tmp/npm-install.sh /tmp/
+RUN /tmp/nodesource-setup.sh && \
+  /tmp/npm-install.sh && \
   mkdir -p /opt/npm && \
   mv /tmp/node_modules /opt/npm && \
   ln -s /opt/npm/node_modules/.bin /opt/npm/bin
