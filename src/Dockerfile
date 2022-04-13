@@ -23,6 +23,15 @@ RUN /tmp/nodesource-setup.sh && \
 
 # -----------------------------------------------------------------------------
 
+FROM base AS pip
+
+ARG POETRY_HOME=/opt/poetry
+WORKDIR /tmp
+COPY requirements.txt pip-install.sh /tmp/
+RUN /tmp/pip-install.sh
+
+# -----------------------------------------------------------------------------
+
 FROM base AS poetry
 
 ARG POETRY_HOME=/opt/poetry
@@ -45,6 +54,9 @@ RUN /tmp/nodesource-setup.sh && \
 # -----------------------------------------------------------------------------
 
 FROM base
+
+COPY --from=pip /opt/pip /opt/pip
+ENV PATH="/opt/pip/bin:$PATH"
 
 COPY --from=poetry /opt/poetry /opt/poetry
 ENV PATH="/opt/poetry/bin:$PATH"
