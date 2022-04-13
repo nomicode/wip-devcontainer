@@ -7,7 +7,7 @@ GO_URL="https://go.dev/dl/${GO_TGZ}"
 GOBIN=/opt/go/bin
 export GOBIN
 
-wget "${GO_URL}"
+wget -q "${GO_URL}"
 tar -xzf "${GO_TGZ}"
 chmod 755 go/bin/go
 
