@@ -1,8 +1,9 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu as base
 
 WORKDIR /tmp
-COPY dpkg.txt apt-install.sh /tmp/
-RUN /tmp/apt-install.sh
+COPY vendor/nodesource-setup.sh dpkg.txt apt-install.sh /tmp/
+RUN /tmp/nodesource-setup.sh && \
+  /tmp/apt-install.sh
 
 # apt
 # linkchecker
@@ -25,7 +26,7 @@ RUN /tmp/apt-install.sh
 FROM base AS node
 
 WORKDIR /tmp
-COPY vendor/nodesource-setup.sh package.json npm-install.sh /tmp/
+COPY package.json npm-install.sh /tmp/
 RUN /tmp/nodesource-setup.sh && \
   /tmp/npm-install.sh && \
   mkdir -p /opt/npm && \

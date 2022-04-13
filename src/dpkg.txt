@@ -10,6 +10,7 @@ imagemagick
 isort
 make
 moreutils
+nodejs
 optipng
 pandoc
 pydocstyle
