@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh -ex
 
 DEBIAN_FRONTEND=noninteractive
 export DEBIAN_FRONTEND
@@ -6,6 +6,6 @@ export DEBIAN_FRONTEND
 apt-get update
 xargs apt-get install -y --no-install-recommends <dpkg.txt
 apt-get clean -y
-rm -rf /var/lib/apt/lists/*
+find /var/lib/apt/lists -mindepth 1 -delete
 
 dpkg -l | grep ii | awk '{print $2" "$3}' > dpkg-lock.txt

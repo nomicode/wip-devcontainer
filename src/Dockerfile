@@ -25,10 +25,21 @@ RUN /tmp/nodesource-setup.sh && \
 
 FROM base AS pip
 
-ARG POETRY_HOME=/opt/poetry
 WORKDIR /tmp
 COPY requirements.txt pip-install.sh /tmp/
 RUN /tmp/pip-install.sh
+
+# -----------------------------------------------------------------------------
+
+FROM base AS pipx
+
+ARG PIPX_HOME=/opt/pipx
+ARG PIPX_BIN_DIR=/opt/pipx/bin
+ARG USE_EMOJI=false
+
+WORKDIR /tmp
+COPY requirements.txt pipx-install.sh /tmp/
+RUN /tmp/pipx-install.sh
 
 # -----------------------------------------------------------------------------
 
