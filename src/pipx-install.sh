@@ -12,11 +12,9 @@ export PIPX_BIN_DIR
 USE_EMOJI=false
 export USE_EMOJI
 
-apt-get update -q
-apt-get install -q -y --no-install-recommends python3-venv pipx
+apt-get update -qq
+apt-get install -qq -y --no-install-recommends python3-venv pipx >/dev/null
 apt-get clean -y
 find /var/lib/apt/lists -mindepth 1 -delete
 
 xargs -n 1 pipx install <requirements-pipx.txt
-
-pipx list | grep package | sed 's, *package,,' > pipx-lock.txt
