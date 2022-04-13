@@ -1,9 +1,8 @@
 .venv
+*-lock.txt
 *.log
 *.spec
 built
 dist
-dpkg-lock.txt
 node_modules
 package-lock.json
-vendor
