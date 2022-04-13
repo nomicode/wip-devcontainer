@@ -23,6 +23,15 @@ RUN /tmp/nodesource-setup.sh && \
 
 # -----------------------------------------------------------------------------
 
+FROM base AS poetry
+
+ARG POETRY_HOME=/opt/poetry
+WORKDIR /tmp
+COPY vendor/get-poetry.py /tmp
+RUN python3 - </tmp/get-poetry.py
+
+# -----------------------------------------------------------------------------
+
 FROM base AS node
 
 WORKDIR /tmp
@@ -38,6 +47,7 @@ RUN /tmp/nodesource-setup.sh && \
 FROM base
 
 COPY --from=node /opt/npm /opt/npm
+ENV PATH="/opt/poetry/bin:$PATH"
 ENV PATH="/opt/npm/bin:$PATH"
 
 # -----------------------------------------------------------------------------
