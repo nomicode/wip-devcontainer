@@ -38,7 +38,7 @@ ARG PIPX_BIN_DIR=/opt/pipx/bin
 ARG USE_EMOJI=false
 
 WORKDIR /tmp
-COPY requirements.txt pipx-install.sh /tmp/
+COPY requirements-pipx.txt pipx-install.sh /tmp/
 RUN /tmp/pipx-install.sh
 
 # -----------------------------------------------------------------------------
