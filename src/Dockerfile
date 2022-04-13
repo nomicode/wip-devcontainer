@@ -7,7 +7,7 @@ COPY vendor/nodesource-setup.sh dpkg.txt apt-install.sh /tmp/
 RUN find / -type f > /root/before.txt
 RUN /tmp/nodesource-setup.sh && /tmp/apt-install.sh
 RUN find / -type f > /root/after.txt
-RUN diff /root/before.txt /root/after.txt
+RUN diff /root/before.txt /root/after.txt | grep -vE '^/cat/' | grep -vE '^/proc' | grep -vE '^/usr/'
 
 # apt
 # linkchecker
@@ -28,8 +28,6 @@ RUN diff /root/before.txt /root/after.txt
 # -----------------------------------------------------------------------------
 
 FROM base AS node
-
-COPY --from=apt / /
 
 WORKDIR /tmp
 COPY * /tmp/
