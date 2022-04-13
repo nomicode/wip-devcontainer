@@ -5,8 +5,11 @@ NODESOURCE_SETUP=https://deb.nodesource.com/setup_current.x
 DEBIAN_FRONTEND=noninteractive
 export DEBIAN_FRONTEND
 
+# apt-get update -q
+# apt-get install -q -y --no-install-recommends make
+
 # Runs `apt-get update` for us
-curl -sSL "$(NODESOURCE_SETUP)" | bash -
+curl -sSL "${NODESOURCE_SETUP}" | bash -
 
 xargs apt-get install -q -y --no-install-recommends <dpkg.txt
 apt-get clean -y
