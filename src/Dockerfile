@@ -38,17 +38,27 @@ RUN /tmp/npm-install.sh
 
 # -----------------------------------------------------------------------------
 
+FROM base AS go
+
+WORKDIR /tmp
+COPY go-install.sh /tmp
+RUN /tmp/go-install.sh
+
+# -----------------------------------------------------------------------------
+
 FROM base
 
 COPY --from=pipx /opt/pipx /opt/pipx
-ENV PATH="/opt/pip/bin:$PATH"
+ENV PATH="/opt/pipx/bin:$PATH"
 
 COPY --from=node /opt/npm /opt/npm
 ENV PATH="/opt/npm/bin:$PATH"
 
+COPY --from=go /opt/go /opt/go
+ENV PATH="/opt/go/bin:$PATH"
+
 # -----------------------------------------------------------------------------
 
-# poetry
 # shfmt
 
 # -----------------------------------------------------------------------------
