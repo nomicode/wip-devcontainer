@@ -25,7 +25,7 @@ RUN /tmp/apt-install.sh
 FROM base AS node
 
 WORKDIR /tmp
-COPY vendor/nodesource-setup.sh npm-install.sh /tmp/
+COPY vendor/nodesource-setup.sh package.json npm-install.sh /tmp/
 RUN /tmp/nodesource-setup.sh && \
   /tmp/npm-install.sh && \
   mkdir -p /opt/npm && \
