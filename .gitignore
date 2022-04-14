@@ -1,8 +1,5 @@
-.venv
-*-lock.txt
 *.log
-*.spec
-built
-dist
+go*
 node_modules
 package-lock.json
+package.json

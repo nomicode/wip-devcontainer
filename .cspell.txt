@@ -2,6 +2,7 @@ apk
 awk
 cli
 coreutils
+cronic
 csvkit
 dedupe
 deps
